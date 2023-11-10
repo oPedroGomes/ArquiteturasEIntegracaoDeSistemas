@@ -6,6 +6,7 @@
     <ImplicitUsings>enable</ImplicitUsings>
     <DockerDefaultTargetOS>Windows</DockerDefaultTargetOS>
     <DockerfileContext>..\MSJogos</DockerfileContext>
+    <UserSecretsId>bf567a0d-c628-414f-9f61-d3cd38ae8d27</UserSecretsId>
   </PropertyGroup>
 
   <ItemGroup>

@@ -2,32 +2,31 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace MSTempo.Controllers
 {
+    [Route("/api")]
     [ApiController]
-    [Route("[controller]")]
+ 
     public class WeatherForecastController : ControllerBase
-    {
-        private static readonly string[] Summaries = new[]
-        {
-        "Freezing", "Bracing", "Chilly", "Cool", "Mild", "Warm", "Balmy", "Hot", "Sweltering", "Scorching"
-    };
+    {      
 
         private readonly ILogger<WeatherForecastController> _logger;
+        private readonly WeatherForecast _weatherForecast;
 
-        public WeatherForecastController(ILogger<WeatherForecastController> logger)
+        public WeatherForecastController(ILogger<WeatherForecastController> logger, WeatherForecast weatherForecast)
         {
             _logger = logger;
+            _weatherForecast = weatherForecast;
         }
 
-        [HttpGet(Name = "GetWeatherForecast")]
-        public IEnumerable<WeatherForecast> Get()
-        {
-            return Enumerable.Range(0, 1).Select(index => new WeatherForecast
-            {
-                Date = DateOnly.FromDateTime(DateTime.Now.AddDays(index)),
-                TemperatureC = Random.Shared.Next(-20, 55),
-                Summary = Summaries[Random.Shared.Next(Summaries.Length)]
-            })
-            .ToArray();
-        }
+        [HttpGet]
+        [Route("/weather")]
+       public async Task<IActionResult> Weather()
+       {
+            _logger.LogInformation("Recebeu pedido do tempo");
+            var tempo = await _weatherForecast.GetTempo(50.ToString(), 13.ToString(), 1);
+            if (tempo == null)
+                return StatusCode(StatusCodes.Status500InternalServerError);            
+
+            return Ok(tempo);
+       }
     }
 }
