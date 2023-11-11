@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Update User Info</title>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Update User</h1>
+        <form method="POST" id='regform'>
+          <div class="form-group">
+            <label for="primeironome">Primeiro Nome</label>
+            <input type="text" class="form-control" id="primeironome" name="primeironome" placeholder="Primeiro nome">
+          </div>
+          <div class="form-group">
+            <label for="ultimonome">Ultimo Nome</label>
+            <input type="text" class="form-control" id="ultimonome" name="ultimonome" placeholder="Ultimo nome">
+          </div>
+          <div class="form-group">
+            <label for="email">Email</label>
+            <input type="email" class="form-control" id="email" name="email" placeholder="Enter email">
+          </div>
+          <div class="form-group">
+            <label for="dataNasc">Data de Nascimento</label>
+            <input type="date" class="form-control" id="dataNasc" name="dataNasc" placeholder="Enter Data de nascimento">
+          </div>
+    
+          <div class="form-group">
+            <label for="password">Password</label>
+            <input type="password" class="form-control" id="password" name="password" placeholder="Enter password">
+          </div>
+          <button type="submit" class="btn btn-primary">Register</button>
+        </form>
+        <script>
+            const form = document.getElementById('regform');
+            form.addEventListener('submit', async (event) => {
+                event.preventDefault();
+                const primeironome = document.getElementById('primeironome').value;
+                const ultimonome = document.getElementById('ultimonome').value;
+                const password = document.getElementById('password').value;
+                const dataNasc = document.getElementById('dataNasc').value;
+                const email = document.getElementById('email').value;
+    
+                //nativo do browser
+                const response = await fetch('/user/update', {
+                    method: 'PUT',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify({ password, email, primeironome, ultimonome, dataNasc })
+                });
+                const data = await response.json();
+                console.log(data);
+                alert(data.message);
+    
+            })
+        </script>
+
+</body>
+</html>

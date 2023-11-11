@@ -14,6 +14,8 @@ namespace MSDirecoes.Controllers
         public DirectionsController(DirectionService directionService)
         {
             _directionService = directionService;
+            
+            
         }
 
         [HttpPost]

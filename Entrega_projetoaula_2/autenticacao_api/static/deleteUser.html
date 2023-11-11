@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Apagar User</title>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+<body>
+  <div class="container">
+    <h1>Delete User</h1>
+    <form method="POST" id='Apagarform'>
+      <div class="form-group">
+        <label for="email">email</label>
+        <input type="text" class="form-control" id="email" name="email" placeholder="email">
+      </div>
+      <div class="form-group">
+        <label for="password">Password</label>
+        <input type="password" class="form-control" id="password" name="password" placeholder="Enter password">
+      </div>
+      <button type="submit" class="btn btn-primary">Apagar</button>
+    </form>
+
+    <script>
+        const form = document.getElementById('Apagarform');
+        form.addEventListener('submit', login);
+        async function login(event) {
+            event.preventDefault();
+            const email = document.getElementById('email').value;
+            const password = document.getElementById('password').value;
+            const response = await fetch('/user/delete', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({ email, password })
+            });
+            const data = await response.json().then(data => {
+                if(data.status == 200) {
+                  console.log(data.message);                  
+                }
+                console.log(data.message);
+
+            });
+        }
+
+       
+    </script>
+  </div>
+</body>
+</html>
