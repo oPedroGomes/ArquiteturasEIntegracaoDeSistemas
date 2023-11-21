@@ -1,0 +1,11 @@
+{
+  "Version": 1,
+  "Hash": "VGdLHQY9T0Z4IjMGaI+ZTIA2mUzNd7l0phK2INgvCWw=",
+  "Source": "MSGateway",
+  "BasePath": "_content/MSGateway",
+  "Mode": "Default",
+  "ManifestType": "Build",
+  "ReferencedProjectsConfiguration": [],
+  "DiscoveryPatterns": [],
+  "Assets": []
+}

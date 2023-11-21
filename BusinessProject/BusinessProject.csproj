@@ -1,0 +1,69 @@
+﻿<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>net7.0</TargetFramework>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Include="OpenAPIs\swagger.json" ClassName="DirecoesAPI" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="OpenAPIs\swagger1.json" ClassName="DirecoesAPI" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="OpenAPIs\swagger2.json" ClassName="DirecoesAPI" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="OpenAPIs\swagger3.json" ClassName="DirecoesAPI" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="OpenAPIs\swagger4.json" ClassName="DirecoesAPI" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="OpenAPIs\swagger5.json" ClassName="DirecoesAPI" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <OpenApiReference Include="OpenAPIs\swagger10.json" CodeGenerator="NSwagCSharp" ClassName="LazerAPI">
+      <SourceUri>https://localhost:44377/swagger/v1/swagger.json</SourceUri>
+    </OpenApiReference>
+    <OpenApiReference Include="OpenAPIs\swagger11.json" CodeGenerator="NSwagCSharp" ClassName="EstacionamentoAPI">
+      <SourceUri>https://localhost:44305/swagger/v1/swagger.json</SourceUri>
+    </OpenApiReference>
+    <OpenApiReference Include="OpenAPIs\swagger12.json" CodeGenerator="NSwagCSharp" ClassName="DirecoesAPI">
+      <SourceUri>https://localhost:44372/swagger/v1/swagger.json</SourceUri>
+    </OpenApiReference>
+    <OpenApiReference Include="OpenAPIs\swagger13.json" CodeGenerator="NSwagCSharp" ClassName="TempoAPI">
+      <SourceUri>https://localhost:44314/swagger/v1/swagger.json</SourceUri>
+    </OpenApiReference>
+    <None Include="OpenAPIs\swagger6.json" ClassName="DirecoesAPI" />
+    <None Include="OpenAPIs\swagger8.json" ClassName="EstacionamentoAPI" />
+    <None Include="OpenAPIs\swagger9.json" ClassName="LazerAPI" />
+    <None Include="OpenAPIs\swagger7.json" ClassName="EstacionamentoAPI" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.Extensions.ApiDescription.Client" Version="7.0.2">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
+    <PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
+    <PackageReference Include="NSwag.ApiDescription.Client" Version="13.18.2">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\MSDirecoes\MSDirecoes.csproj" />
+    <ProjectReference Include="..\MSEstacionamento\MSEstacionamento.csproj" />
+  </ItemGroup>
+
+</Project>

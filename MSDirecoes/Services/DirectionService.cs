@@ -16,7 +16,7 @@ namespace MSDirecoes.Services
             _configuration = configuration;
         }
 
-        public async  Task<GoogleMapDirectionModel> GetDirectionsByCoordinates(Coordinates coordinates)
+        public async Task<GoogleMapDirectionModel> GetDirections(Coordinates coordinates)
         {
             var httpClient = _httpFactory.CreateClient();
             var builder = new UriBuilder(_configuration.GetSection("GOOGLE_MAPS_URL").Value);

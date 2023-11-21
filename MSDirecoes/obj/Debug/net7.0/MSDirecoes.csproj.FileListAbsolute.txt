@@ -7,6 +7,7 @@ C:\IPCA\ArquiteturasEIntegracaoDeSistemas\MSDirecoes\bin\Debug\net7.0\MSDirecoes
 C:\IPCA\ArquiteturasEIntegracaoDeSistemas\MSDirecoes\bin\Debug\net7.0\MSDirecoes.pdb
 C:\IPCA\ArquiteturasEIntegracaoDeSistemas\MSDirecoes\bin\Debug\net7.0\Microsoft.AspNetCore.OpenApi.dll
 C:\IPCA\ArquiteturasEIntegracaoDeSistemas\MSDirecoes\bin\Debug\net7.0\Microsoft.OpenApi.dll
+C:\IPCA\ArquiteturasEIntegracaoDeSistemas\MSDirecoes\bin\Debug\net7.0\Newtonsoft.Json.dll
 C:\IPCA\ArquiteturasEIntegracaoDeSistemas\MSDirecoes\bin\Debug\net7.0\Swashbuckle.AspNetCore.Swagger.dll
 C:\IPCA\ArquiteturasEIntegracaoDeSistemas\MSDirecoes\bin\Debug\net7.0\Swashbuckle.AspNetCore.SwaggerGen.dll
 C:\IPCA\ArquiteturasEIntegracaoDeSistemas\MSDirecoes\bin\Debug\net7.0\Swashbuckle.AspNetCore.SwaggerUI.dll
@@ -31,4 +32,3 @@ C:\IPCA\ArquiteturasEIntegracaoDeSistemas\MSDirecoes\obj\Debug\net7.0\refint\MSD
 C:\IPCA\ArquiteturasEIntegracaoDeSistemas\MSDirecoes\obj\Debug\net7.0\MSDirecoes.pdb
 C:\IPCA\ArquiteturasEIntegracaoDeSistemas\MSDirecoes\obj\Debug\net7.0\MSDirecoes.genruntimeconfig.cache
 C:\IPCA\ArquiteturasEIntegracaoDeSistemas\MSDirecoes\obj\Debug\net7.0\ref\MSDirecoes.dll
-C:\IPCA\ArquiteturasEIntegracaoDeSistemas\MSDirecoes\bin\Debug\net7.0\Newtonsoft.Json.dll

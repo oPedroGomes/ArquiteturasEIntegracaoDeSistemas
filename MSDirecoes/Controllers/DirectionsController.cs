@@ -20,14 +20,24 @@ namespace MSDirecoes.Controllers
 
         [HttpPost]
         [Route("/directions")]
+        [ProducesResponseType(typeof(GoogleMapDirectionModel), StatusCodes.Status200OK)]
+
         public async Task<IActionResult> GetDirections([FromBody]Coordinates coordinates)
         {
-            var directions = await _directionService.GetDirectionsByCoordinates(coordinates);
+            var directions = await _directionService.GetDirections(coordinates);
 
             if(directions == null)
                 return BadRequest();
 
             return Ok(directions);
+        }
+
+
+        [HttpPost]
+        [Route("/teste")]
+        public IActionResult teste([FromBody] Coordinates coordinates)
+        {
+            return Ok(new {fodasse = "123" });
         }
     }
 }

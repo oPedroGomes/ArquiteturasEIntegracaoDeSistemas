@@ -1,0 +1,392 @@
+{
+  "openapi": "3.0.1",
+  "info": {
+    "title": "MSDirecoes",
+    "version": "1.0"
+  },
+  "paths": {
+    "/directions": {
+      "post": {
+        "tags": [
+          "Directions"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Coordinates"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Coordinates"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/Coordinates"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/GoogleMapDirectionModel"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/GoogleMapDirectionModel"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/GoogleMapDirectionModel"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/teste": {
+      "post": {
+        "tags": [
+          "Directions"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Coordinates"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Coordinates"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/Coordinates"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "Bounds": {
+        "type": "object",
+        "properties": {
+          "northeast": {
+            "$ref": "#/components/schemas/Northeast"
+          },
+          "southwest": {
+            "$ref": "#/components/schemas/Southwest"
+          }
+        },
+        "additionalProperties": false
+      },
+      "Coordinate": {
+        "type": "object",
+        "properties": {
+          "latitute": {
+            "type": "string",
+            "nullable": true
+          },
+          "longitude": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "Coordinates": {
+        "type": "object",
+        "properties": {
+          "from": {
+            "$ref": "#/components/schemas/Coordinate"
+          },
+          "to": {
+            "$ref": "#/components/schemas/Coordinate"
+          }
+        },
+        "additionalProperties": false
+      },
+      "Distance": {
+        "type": "object",
+        "properties": {
+          "text": {
+            "type": "string",
+            "nullable": true
+          },
+          "value": {
+            "type": "integer",
+            "format": "int32"
+          }
+        },
+        "additionalProperties": false
+      },
+      "Duration": {
+        "type": "object",
+        "properties": {
+          "text": {
+            "type": "string",
+            "nullable": true
+          },
+          "value": {
+            "type": "integer",
+            "format": "int32"
+          }
+        },
+        "additionalProperties": false
+      },
+      "EndLocation": {
+        "type": "object",
+        "properties": {
+          "lat": {
+            "type": "number",
+            "format": "double"
+          },
+          "lng": {
+            "type": "number",
+            "format": "double"
+          }
+        },
+        "additionalProperties": false
+      },
+      "GeocodedWaypoint": {
+        "type": "object",
+        "properties": {
+          "geocoder_status": {
+            "type": "string",
+            "nullable": true
+          },
+          "place_id": {
+            "type": "string",
+            "nullable": true
+          },
+          "types": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "GoogleMapDirectionModel": {
+        "type": "object",
+        "properties": {
+          "geocoded_waypoints": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/GeocodedWaypoint"
+            },
+            "nullable": true
+          },
+          "routes": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Route"
+            },
+            "nullable": true
+          },
+          "status": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "Leg": {
+        "type": "object",
+        "properties": {
+          "distance": {
+            "$ref": "#/components/schemas/Distance"
+          },
+          "duration": {
+            "$ref": "#/components/schemas/Duration"
+          },
+          "end_address": {
+            "type": "string",
+            "nullable": true
+          },
+          "end_location": {
+            "$ref": "#/components/schemas/EndLocation"
+          },
+          "start_address": {
+            "type": "string",
+            "nullable": true
+          },
+          "start_location": {
+            "$ref": "#/components/schemas/StartLocation"
+          },
+          "steps": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Step"
+            },
+            "nullable": true
+          },
+          "traffic_speed_entry": {
+            "type": "array",
+            "items": { },
+            "nullable": true
+          },
+          "via_waypoint": {
+            "type": "array",
+            "items": { },
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "Northeast": {
+        "type": "object",
+        "properties": {
+          "lat": {
+            "type": "number",
+            "format": "double"
+          },
+          "lng": {
+            "type": "number",
+            "format": "double"
+          }
+        },
+        "additionalProperties": false
+      },
+      "OverviewPolyline": {
+        "type": "object",
+        "properties": {
+          "points": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "Polyline": {
+        "type": "object",
+        "properties": {
+          "points": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "Route": {
+        "type": "object",
+        "properties": {
+          "bounds": {
+            "$ref": "#/components/schemas/Bounds"
+          },
+          "copyrights": {
+            "type": "string",
+            "nullable": true
+          },
+          "legs": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Leg"
+            },
+            "nullable": true
+          },
+          "overview_polyline": {
+            "$ref": "#/components/schemas/OverviewPolyline"
+          },
+          "summary": {
+            "type": "string",
+            "nullable": true
+          },
+          "warnings": {
+            "type": "array",
+            "items": { },
+            "nullable": true
+          },
+          "waypoint_order": {
+            "type": "array",
+            "items": { },
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "Southwest": {
+        "type": "object",
+        "properties": {
+          "lat": {
+            "type": "number",
+            "format": "double"
+          },
+          "lng": {
+            "type": "number",
+            "format": "double"
+          }
+        },
+        "additionalProperties": false
+      },
+      "StartLocation": {
+        "type": "object",
+        "properties": {
+          "lat": {
+            "type": "number",
+            "format": "double"
+          },
+          "lng": {
+            "type": "number",
+            "format": "double"
+          }
+        },
+        "additionalProperties": false
+      },
+      "Step": {
+        "type": "object",
+        "properties": {
+          "distance": {
+            "$ref": "#/components/schemas/Distance"
+          },
+          "duration": {
+            "$ref": "#/components/schemas/Duration"
+          },
+          "end_location": {
+            "$ref": "#/components/schemas/EndLocation"
+          },
+          "html_instructions": {
+            "type": "string",
+            "nullable": true
+          },
+          "polyline": {
+            "$ref": "#/components/schemas/Polyline"
+          },
+          "start_location": {
+            "$ref": "#/components/schemas/StartLocation"
+          },
+          "travel_mode": {
+            "type": "string",
+            "nullable": true
+          },
+          "maneuver": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      }
+    }
+  }
+}
