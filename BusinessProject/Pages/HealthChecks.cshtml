@@ -1,0 +1,90 @@
+﻿@page "/HealthChecks"
+@model BusinessProject.Pages.HealthChecksModel
+@{
+}
+
+
+<div class="row" style="padding:1em">
+    <div class="card" style="width: 15rem;margin-right:1em">
+        <img src="images/MicroservicesNoBg.png" class="card-img-top" alt="...">
+        <div class="card-body">
+            <h5 class="card-title">MS Direções</h5>
+            @if (Model.MSDirecoes)
+            {
+                <a href="#" class="btn btn-success"></a>
+            }
+            else
+            {
+                <a href="#" class="btn btn-danger"></a>
+
+            }
+            
+            
+        </div>
+    </div>
+
+    <div class="card" style="width: 15rem;margin-right:1em">
+        <img src="images/MicroservicesNoBg.png" class="card-img-top" alt="...">
+        <div class="card-body">
+            <h5 class="card-title">MS Lazer</h5>
+            @if (Model.MSLazer)
+            {
+                <a href="#" class="btn btn-success"></a>
+            }
+            else
+            {
+                <a href="#" class="btn btn-danger"></a>
+
+            }
+        </div>
+    </div>
+
+
+    <div class="card" style="width: 15rem;margin-right:1em">
+        <img src="images/MicroservicesNoBg.png" class="card-img-top" alt="...">
+        <div class="card-body">
+            <h5 class="card-title">MS Estacionamento</h5>
+            @if (Model.MSEstacionamento)
+            {
+                <a href="#" class="btn btn-success"></a>
+            }
+            else
+            {
+                <a href="#" class="btn btn-danger"></a>
+
+            }
+        </div>
+    </div>
+
+    <div class="card" style="width: 15rem;margin-right:1em">
+        <img src="images/MicroservicesNoBg.png" class="card-img-top" alt="...">
+        <div class="card-body">
+            <h5 class="card-title">MS Tempo</h5>
+            @if (Model.MSTempo)
+            {
+                <a href="#" class="btn btn-success"></a>
+            }
+            else
+            {
+                <a href="#" class="btn btn-danger"></a>
+
+            }
+        </div>
+    </div>
+
+    <div class="card" style="width: 15rem;margin-right:1em">
+        <img src="images/MicroservicesNoBg.png" class="card-img-top" alt="...">
+        <div class="card-body">
+            <h5 class="card-title">MS Gateway</h5>
+            @if (Model.MSGateway)
+            {
+                <a href="#" class="btn btn-success"></a>
+            }
+            else
+            {
+                <a href="#" class="btn btn-danger"></a>
+
+            }
+        </div>
+    </div>
+</div>

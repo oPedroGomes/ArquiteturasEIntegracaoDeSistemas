@@ -1,12 +1,11 @@
 using BusinessProject.BL;
-using MSDirecoes.Services;
 
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddRazorPages();
 builder.Services.AddHttpClient();
-builder.Services.AddSingleton<BusinessClass>();
+
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
@@ -18,6 +17,7 @@ if (!app.Environment.IsDevelopment())
 }
 app.UseHttpsRedirection();
 app.UseStaticFiles();
+app.UseStatusCodePagesWithReExecute("/{0}");
 
 app.UseRouting();
 

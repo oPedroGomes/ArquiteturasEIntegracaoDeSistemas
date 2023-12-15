@@ -5,12 +5,20 @@
       "PackagePath": "staticwebassets\\BusinessProject.bundle.scp.css"
     },
     {
+      "Id": "C:\\IPCA\\ArquiteturasEIntegracaoDeSistemas\\BusinessProject\\wwwroot\\css\\Inter-ExtraLight.ttf",
+      "PackagePath": "staticwebassets\\css\\Inter-ExtraLight.ttf"
+    },
+    {
       "Id": "C:\\IPCA\\ArquiteturasEIntegracaoDeSistemas\\BusinessProject\\wwwroot\\css\\site.css",
       "PackagePath": "staticwebassets\\css\\site.css"
     },
     {
       "Id": "C:\\IPCA\\ArquiteturasEIntegracaoDeSistemas\\BusinessProject\\wwwroot\\favicon.ico",
       "PackagePath": "staticwebassets\\favicon.ico"
+    },
+    {
+      "Id": "C:\\IPCA\\ArquiteturasEIntegracaoDeSistemas\\BusinessProject\\wwwroot\\images\\MicroservicesNoBg.png",
+      "PackagePath": "staticwebassets\\images\\MicroservicesNoBg.png"
     },
     {
       "Id": "C:\\IPCA\\ArquiteturasEIntegracaoDeSistemas\\BusinessProject\\wwwroot\\js\\site.js",

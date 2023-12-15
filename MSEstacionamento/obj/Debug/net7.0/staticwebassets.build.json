@@ -1,23 +1,11 @@
 {
   "Version": 1,
-  "Hash": "V4IvIF/QfLCvFbQSwPegA6RyfITeBb5mVhCStTJApa4=",
+  "Hash": "trrhxFwQt/e9pFNw1yFowUnBByvmnJahsAYm3wVK4wQ=",
   "Source": "MSEstacionamento",
   "BasePath": "_content/MSEstacionamento",
   "Mode": "Default",
   "ManifestType": "Build",
-  "ReferencedProjectsConfiguration": [
-    {
-      "Identity": "C:\\IPCA\\ArquiteturasEIntegracaoDeSistemas\\MSDirecoes\\MSDirecoes.csproj",
-      "Version": 2,
-      "Source": "MSDirecoes",
-      "GetPublishAssetsTargets": "ComputeReferencedStaticWebAssetsPublishManifest;GetCurrentProjectPublishStaticWebAssetItems",
-      "AdditionalPublishProperties": "Configuration=Debug;Platform=AnyCPU",
-      "AdditionalPublishPropertiesToRemove": "WebPublishProfileFile;TargetFramework",
-      "GetBuildAssetsTargets": "GetCurrentProjectBuildStaticWebAssetItems",
-      "AdditionalBuildProperties": "Configuration=Debug;Platform=AnyCPU",
-      "AdditionalBuildPropertiesToRemove": "WebPublishProfileFile;TargetFramework"
-    }
-  ],
+  "ReferencedProjectsConfiguration": [],
   "DiscoveryPatterns": [],
   "Assets": []
 }

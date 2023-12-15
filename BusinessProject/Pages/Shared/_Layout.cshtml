@@ -1,4 +1,5 @@
-﻿<!DOCTYPE html>
+﻿@using System.IdentityModel.Tokens.Jwt;
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="utf-8" />
@@ -20,11 +21,42 @@
                 <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
                     <ul class="navbar-nav flex-grow-1">
                         <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-page="/Index">Home</a>
+                            <a class="nav-link text-dark" asp-area="" asp-page="/Business">Business</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-page="/Privacy">Privacy</a>
+                            <a class="nav-link text-dark" asp-area="" asp-page="/SetBearerToken">Definir Token</a>
                         </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-dark" asp-area="" asp-page="/Stats">Stats Utilização</a>
+                        </li>
+                        @if (!string.IsNullOrEmpty(Global.BERARER_TOKEN))
+                        {
+                            string email;
+                            string role;
+                            try
+                            {
+                                var jwt = new JwtSecurityTokenHandler().ReadJwtToken(Global.BERARER_TOKEN);
+                                 role = jwt.Claims.First(c => c.Type == "role").Value;
+                                 email = jwt.Claims.First(c => c.Type == "email").Value;
+
+
+                                <li class="nav-item" style="width:100%;text-align:right">
+                                    @email - @role
+                                </li>
+                            }catch(Exception e)
+                            {
+
+                                <li class="nav-item" style="width:100%;text-align:right">
+                                   Token inválido
+                                </li>
+                            }
+
+                           
+                        }
+                        <li class="nav-item">
+                            <a class="nav-link text-dark" asp-area="" asp-page="/HealthChecks">HealthChecks</a>
+                        </li>
+                       
                     </ul>
                 </div>
             </div>

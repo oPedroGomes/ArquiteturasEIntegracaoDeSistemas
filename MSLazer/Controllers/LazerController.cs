@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Http;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using MSLazer.Models;
 using MSLazer.Services;
@@ -18,6 +19,7 @@ namespace MSLazer.Controllers
         [HttpPost("/GetPlacesLazer")]
         [ProducesResponseType(typeof(PlacesResponseLazer), StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
+        [Authorize]
         public async Task<IActionResult> GetPlacesLazer(SearchParametersLazer searchParameters)
         {
             try

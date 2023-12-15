@@ -1,34 +1,11 @@
 {
   "Version": 1,
-  "Hash": "Wscy2ql5InnkNQCchurD+/Q8Zby36CtoVzRW7TM/JFE=",
+  "Hash": "MuhwSBMJ4fbAVGlZUeSa/OceX03dUAVyWbXd0tB14d8=",
   "Source": "BusinessProject",
   "BasePath": "_content/BusinessProject",
   "Mode": "Default",
   "ManifestType": "Build",
-  "ReferencedProjectsConfiguration": [
-    {
-      "Identity": "C:\\IPCA\\ArquiteturasEIntegracaoDeSistemas\\MSDirecoes\\MSDirecoes.csproj",
-      "Version": 2,
-      "Source": "MSDirecoes",
-      "GetPublishAssetsTargets": "ComputeReferencedStaticWebAssetsPublishManifest;GetCurrentProjectPublishStaticWebAssetItems",
-      "AdditionalPublishProperties": "Configuration=Debug;Platform=AnyCPU",
-      "AdditionalPublishPropertiesToRemove": "WebPublishProfileFile;TargetFramework",
-      "GetBuildAssetsTargets": "GetCurrentProjectBuildStaticWebAssetItems",
-      "AdditionalBuildProperties": "Configuration=Debug;Platform=AnyCPU",
-      "AdditionalBuildPropertiesToRemove": "WebPublishProfileFile;TargetFramework"
-    },
-    {
-      "Identity": "C:\\IPCA\\ArquiteturasEIntegracaoDeSistemas\\MSEstacionamento\\MSEstacionamento.csproj",
-      "Version": 2,
-      "Source": "MSEstacionamento",
-      "GetPublishAssetsTargets": "ComputeReferencedStaticWebAssetsPublishManifest;GetCurrentProjectPublishStaticWebAssetItems",
-      "AdditionalPublishProperties": "Configuration=Debug;Platform=AnyCPU",
-      "AdditionalPublishPropertiesToRemove": "WebPublishProfileFile;TargetFramework",
-      "GetBuildAssetsTargets": "GetCurrentProjectBuildStaticWebAssetItems",
-      "AdditionalBuildProperties": "Configuration=Debug;Platform=AnyCPU",
-      "AdditionalBuildPropertiesToRemove": "WebPublishProfileFile;TargetFramework"
-    }
-  ],
+  "ReferencedProjectsConfiguration": [],
   "DiscoveryPatterns": [
     {
       "Name": "BusinessProject\\wwwroot",
@@ -74,6 +51,23 @@
       "OriginalItemSpec": "C:\\IPCA\\ArquiteturasEIntegracaoDeSistemas\\BusinessProject\\obj\\Debug\\net7.0\\scopedcss\\projectbundle\\BusinessProject.bundle.scp.css"
     },
     {
+      "Identity": "C:\\IPCA\\ArquiteturasEIntegracaoDeSistemas\\BusinessProject\\wwwroot\\css\\Inter-ExtraLight.ttf",
+      "SourceId": "BusinessProject",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\IPCA\\ArquiteturasEIntegracaoDeSistemas\\BusinessProject\\wwwroot\\",
+      "BasePath": "_content/BusinessProject",
+      "RelativePath": "css/Inter-ExtraLight.ttf",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\css\\Inter-ExtraLight.ttf"
+    },
+    {
       "Identity": "C:\\IPCA\\ArquiteturasEIntegracaoDeSistemas\\BusinessProject\\wwwroot\\css\\site.css",
       "SourceId": "BusinessProject",
       "SourceType": "Discovered",
@@ -106,6 +100,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\favicon.ico"
+    },
+    {
+      "Identity": "C:\\IPCA\\ArquiteturasEIntegracaoDeSistemas\\BusinessProject\\wwwroot\\images\\MicroservicesNoBg.png",
+      "SourceId": "BusinessProject",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\IPCA\\ArquiteturasEIntegracaoDeSistemas\\BusinessProject\\wwwroot\\",
+      "BasePath": "_content/BusinessProject",
+      "RelativePath": "images/MicroservicesNoBg.png",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\images\\MicroservicesNoBg.png"
     },
     {
       "Identity": "C:\\IPCA\\ArquiteturasEIntegracaoDeSistemas\\BusinessProject\\wwwroot\\js\\site.js",

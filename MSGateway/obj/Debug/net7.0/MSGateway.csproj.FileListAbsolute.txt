@@ -41,3 +41,8 @@ C:\IPCA\ArquiteturasEIntegracaoDeSistemas\MSGateway\bin\Debug\net7.0\Microsoft.E
 C:\IPCA\ArquiteturasEIntegracaoDeSistemas\MSGateway\bin\Debug\net7.0\Newtonsoft.Json.dll
 C:\IPCA\ArquiteturasEIntegracaoDeSistemas\MSGateway\bin\Debug\net7.0\Newtonsoft.Json.Bson.dll
 C:\IPCA\ArquiteturasEIntegracaoDeSistemas\MSGateway\bin\Debug\net7.0\Ocelot.dll
+C:\IPCA\ArquiteturasEIntegracaoDeSistemas\MSGateway\bin\Debug\net7.0\Microsoft.Bcl.AsyncInterfaces.dll
+C:\IPCA\ArquiteturasEIntegracaoDeSistemas\MSGateway\bin\Debug\net7.0\Microsoft.Bcl.TimeProvider.dll
+C:\IPCA\ArquiteturasEIntegracaoDeSistemas\MSGateway\bin\Debug\net7.0\Ocelot.Provider.Polly.dll
+C:\IPCA\ArquiteturasEIntegracaoDeSistemas\MSGateway\bin\Debug\net7.0\Polly.dll
+C:\IPCA\ArquiteturasEIntegracaoDeSistemas\MSGateway\bin\Debug\net7.0\Polly.Core.dll

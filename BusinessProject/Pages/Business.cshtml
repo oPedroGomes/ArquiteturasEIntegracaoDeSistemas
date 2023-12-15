@@ -1,129 +1,496 @@
-﻿@page
+﻿@page "/Business"
 @model BusinessProject.Pages.BusinessModel
 @{
+    var Jogos = @Model.Jogos;
 
 }
+<div style="margin-bottom:2em">
+    <form class="form" method="post">
+        <label for="clube"> Clube </label>
+        <input type="text" name="clube">
+        <button type="submit" class="btn btn-primary">
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-search" viewBox="0 0 16 16">
+                <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0" />
+            </svg>
+        </button>
 
-@if (Model.direcoes != null)
+        @if (Model.DetalheJogo != null)
+        {
+            <input type="hidden" asp-for="Jogos">
+            <input type="hidden" value="@Model.DetalheJogo.Fixture.Id" name="idJogo">
+
+
+            <button type="submit" class="btn btn-primary" value="Refresh" asp-page-handler="Detalhe">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-clockwise" viewBox="0 0 16 16">
+                    <path fill-rule="evenodd" d="M8 3a5 5 0 1 0 4.546 2.914.5.5 0 0 1 .908-.417A6 6 0 1 1 8 2z" />
+                    <path d="M8 4.466V.534a.25.25 0 0 1 .41-.192l2.36 1.966c.12.1.12.284 0 .384L8.41 4.658A.25.25 0 0 1 8 4.466" />
+                </svg>
+            </button>
+
+
+        }
+    </form>
+</div>
+
+@if (Model.Jogos != null)
 {
-    <table>
-        <thead> <tr> <th>Origin</th> <th>Destination</th> <th>Distance</th> <th>Duration</th> </tr> </thead>
-        <tbody>
+    <h3>Próximos Jogos</h3>
 
-            @{
-                var tete = Model.direcoes.Routes.ToList();
-                var instructions = tete[0].Legs.ToList();
-                var instructions2 = instructions[0].Steps.ToList();
-
-            }
-            @foreach (var item in instructions2)
-            {
-                <tr>
-                    <td>@item.Maneuver</td>
-                    <td>@item.Duration.Text</td>
-                    <td>@item.Distance.Text</td>
-                    <td>@Html.Raw(item.Html_instructions)</td>
-
-
-                </tr>
-
-            }
-        </tbody>
-    </table>
-}
-else
-{
-    <p>There is no data available for directions</p>
-}
-@if (Model.parking != null)
-{
-    <table>
-        <thead>
-            <tr>
-                <th>Nome</th>
-                <th>Rating</th>
-                <th>Estado</th>
-                <!-- Add more columns for each property you want to display -->
-            </tr>
-        </thead>
-        <tbody>
-            @foreach (var item in Model.parking.Places.ToList())
-            {
-                <tr>
-                    <td>@item.DisplayName.Text</td>
-                    <td>@item.Rating</td>
-                    <td>@item.BusinessStatus</td>
-                </tr>
-            }
-        </tbody>
-    </table>
-}
-else
-{
-    <p>There is no data available for parking</p>
-}
-
-@if (Model.lazer != null)
-{
-    @if (Model.lazer != null)
+    foreach (var item in Model.Jogos)
     {
-        <table>
-            <thead>
-                <tr>
-                    <th>Nome</th>
-                    <th>Rating</th>
-                    <th>Estado</th>
-                </tr>
-            </thead>
-            <tbody>
-                @foreach (var prop in Model.lazer.Places.ToList())
-                {
-                    <tr>
-                        <td>@prop.DisplayName.Text</td>
-                        <td>@prop.Rating</td>
-                        <td>@prop.BusinessStatus</td>
+        @if (item.Fixture.Date.Date.ToString("yyyy-MM-dd") == DateTime.Now.ToString("yyyy-MM-dd"))
+        {
 
-                    </tr>
-                }
-            </tbody>
-        </table>
+        }
+
+        <div class="row border-bottom">
+            <div class="col-2">
+                <div>
+                    <span>
+                        @item.Teams.Home.Name
+                    </span>
+
+                </div>
+
+
+            </div>
+
+            <div class="col-1">
+                <div>
+                    <form method="post">
+                        <input type="hidden" asp-for="Jogos">
+                        <input type="hidden" value="@item.Fixture.Id" name="idJogo">
+                        <input type="submit" value="Detalhe" asp-page-handler="Detalhe">
+                    </form>
+                </div>
+            </div>
+            <div class="col" style="text-align:center">
+                <b>
+                    @item.Fixture.Date.ToString("dd/MM/yyyy")
+                </b>
+                @item.League.Name
+            </div>
+            <div class="col-2">
+                @item.Teams.Away.Name
+            </div>
+        </div>
     }
 }
-else
+
+@if (Model.DetalheJogo != null)
 {
-    <p>There is no data available for leisure</p>
-}
-
-@if (Model.tempo != null)
-{
-    <table>
-        <thead>
-            <tr>
-                <th>Nome</th>
-                <th>Rating</th>
-                <th>Estado</th>
-            </tr>
-        </thead>
-        <tbody>
 
 
+    <div class="row" style="text-align:center">
+        <div class="col">
+            <h4>
+                <b> @Model.DetalheJogo.Teams.Home.Name</b>
+            </h4>
+        </div>
+        <div class="col">
+            <div class="border-bottom" style="text-align:center">
+                <b> @Model.DetalheJogo.League.Name</b>
+            </div>
+            <div class="border-bottom" style="text-align:center">
+                @Model.DetalheJogo.Fixture.Date.DayOfWeek.ToString() - @Model.DetalheJogo.Fixture.Date.ToString("dd/MM")
+            </div>
+            <div class="border-bottom" style="text-align:center">
+                <b>@Model.DetalheJogo.Fixture.Venue.Name</b>
+            </div>
+        </div>
+        <div class="col">
+            <h4>
+                <b> @Model.DetalheJogo.Teams.Away.Name</b>
+            </h4>
+        </div>
+    </div>
 
-            @foreach (var prop in Model.tempo.Hourly.Temperature_2m.ToList())
+
+
+
+    <ul class="nav nav-tabs" id="myTab" role="tablist">
+        <li class="nav-item" role="presentation">
+            <button class="nav-link active" id="home-tab" data-bs-toggle="tab" data-bs-target="#Jogo" type="button" role="tab" aria-controls="Jogo" aria-selected="true">Detalhes Jogo</button>
+        </li>
+        <li class="nav-item" role="presentation">
+            <button class="nav-link" id="profile-tab" data-bs-toggle="tab" data-bs-target="#Tempo" type="button" role="tab" aria-controls="Tempo" aria-selected="false">Detalhes Tempo</button>
+        </li>
+        <li class="nav-item" role="presentation">
+            <button class="nav-link" id="contact-tab" data-bs-toggle="tab" data-bs-target="#direcao" type="button" role="tab" aria-controls="direcao" aria-selected="false">Detalhes Direções</button>
+        </li>
+        <li class="nav-item" role="presentation">
+            <button class="nav-link" id="contact-tab" data-bs-toggle="tab" data-bs-target="#lazer" type="button" role="tab" aria-controls="lazer" aria-selected="false">Detalhes Detalhes Lazer</button>
+        </li>
+        <li class="nav-item" role="presentation">
+            <button class="nav-link" id="contact-tab" data-bs-toggle="tab" data-bs-target="#Estacionamento" type="button" role="tab" aria-controls="Estacionamento" aria-selected="false">Detalhes Estacionamento</button>
+        </li>
+    </ul>
+
+    <div class="tab-content" id="myTabContent">
+        <div class="tab-pane fade show active navtab-paddingtop" id="Jogo" role="tabpanel" aria-labelledby="home-tab">
+            @if (Model.DetalheJogo.Fixture != null)
             {
-                <tr>
-                    <td>@prop.ToString()</td>
-                    
+                @*                 var HoraJogo = @Model.DetalheJogo.Fixture.Date;
+        if (DateTime.Now.Date != HoraJogo)
+        {
+        <h4>Não devemos mostrar o detalhe em Jogos que não ocorram no dia atual...Contudo para efeitos de teste deixamos</h4>
+        } *@
 
-                </tr>
+                var bestScorer = Model.TopScorers.Where(x => x.Statistics.Select(r => r.Team.Name).Contains(Model.DetalheJogo.Teams.Home.Name)).ToList();
+
+
+
+                <div class="row">
+                    <div class="col">
+                        @* <h4>
+                <b> @Model.DetalheJogo.Teams.Home.Name</b>
+                </h4> *@
+                        <div class="row">
+                            <h6><b>Jogadores a destacar</b></h6>
+                            @foreach (var item2 in bestScorer)
+                            {
+                                <div class="card mb-3" style="max-width: 540px;">
+                                    <div class="row g-0">
+                                        <div class="col-md-4" style="display:block;margin:auto">
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="64" height="64" fill="currentColor" class="bi bi-person" viewBox="0 0 16 16" style="display:block;margin:auto">
+                                                <path d="M8 8a3 3 0 1 0 0-6 3 3 0 0 0 0 6m2-3a2 2 0 1 1-4 0 2 2 0 0 1 4 0m4 8c0 1-1 1-1 1H3s-1 0-1-1 1-4 6-4 6 3 6 4m-1-.004c-.001-.246-.154-.986-.832-1.664C11.516 10.68 10.289 10 8 10c-2.29 0-3.516.68-4.168 1.332-.678.678-.83 1.418-.832 1.664z" />
+                                            </svg>
+                                        </div>
+                                        <div class="col-md-8">
+                                            <div class="card-body">
+                                                <h5 class="card-title"><b>@item2.Player.Name</b> </h5>
+                                                @foreach (var item in item2.Statistics)
+                                                {
+
+                                                    <div class="row">
+                                                        <div class="col">
+                                                            <h7>Nº Aparências</h7>
+                                                        </div>
+                                                        <div class="col">
+                                                            <b>@item.Games.Appearences</b>
+                                                        </div>
+                                                    </div>
+
+                                                    <div class="row">
+                                                        <div class="col"><h7>Nº Golos </h7></div>
+                                                        <div class="col"><b>@item.Goals.Total</b></div>
+                                                    </div>
+
+                                                    <div class="row">
+                                                        <div class="col"><h7>Nº Assistências</h7></div>
+                                                        <div class="col"><b>@item.Goals.Assists</b></div>
+                                                    </div>
+
+                                                    <div class="row">
+
+                                                        <div class="col"><h7>Passes Chave</h7></div>
+                                                        <div class="col"><b>@item.Passes.Key</b></div>
+                                                    </div>
+
+                                                    <div class="row">
+                                                        <div class="col"><h7>Dribbles</h7></div>
+                                                        <div class="col"> <b>@item.Dribbles.Attempts (@item.Dribbles.Success)</b></div>
+
+                                                    </div>
+
+
+                                                    <p class="card-text">
+                                                        <small class="text-muted">
+                                                            <h7>Rating - <b>@Math.Round(Convert.ToDouble(item.Games.Rating.Replace('.',',')),2)</b></h7>
+                                                        </small>
+                                                    </p>
+                                                }
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                </div>
+                            }
+                        </div>
+
+                    </div>
+                    <div class="col">
+                    </div>
+                    <div class="col">
+                        @{
+                            var bestScorerAway = Model.TopScorers.Where(x => x.Statistics.Select(r => r.Team.Name).Contains(Model.DetalheJogo.Teams.Away.Name)).ToList();
+                        }
+                        @*  <h4>
+
+                <b> @Model.DetalheJogo.Teams.Away.Name</b>
+                </h4> *@
+                        <div class="row">
+                            <h6><b>Jogadores a destacar</b></h6>
+                            @foreach (var item2 in bestScorerAway)
+                            {
+                                <div class="card mb-3" style="max-width: 540px;">
+                                    <div class="row g-0">
+                                        <div class="col-md-4" style="display:block;margin:auto">
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="64" height="64" fill="currentColor" class="bi bi-person" viewBox="0 0 16 16" style="display:block;margin:auto">
+                                                <path d="M8 8a3 3 0 1 0 0-6 3 3 0 0 0 0 6m2-3a2 2 0 1 1-4 0 2 2 0 0 1 4 0m4 8c0 1-1 1-1 1H3s-1 0-1-1 1-4 6-4 6 3 6 4m-1-.004c-.001-.246-.154-.986-.832-1.664C11.516 10.68 10.289 10 8 10c-2.29 0-3.516.68-4.168 1.332-.678.678-.83 1.418-.832 1.664z" />
+                                            </svg>
+                                        </div>
+                                        <div class="col-md-8">
+                                            <div class="card-body">
+                                                <h5 class="card-title"><b>@item2.Player.Name</b> </h5>
+                                                @foreach (var item in item2.Statistics)
+                                                {
+
+                                                    <div class="row">
+                                                        <div class="col">
+                                                            <h7>Nº Aparências</h7>
+                                                        </div>
+                                                        <div class="col">
+                                                            <b>@item.Games.Appearences</b>
+                                                        </div>
+                                                    </div>
+
+                                                    <div class="row">
+                                                        <div class="col"><h7>Nº Golos </h7></div>
+                                                        <div class="col"><b>@item.Goals.Total</b></div>
+                                                    </div>
+
+                                                    <div class="row">
+                                                        <div class="col"><h7>Nº Assistências</h7></div>
+                                                        <div class="col"><b>@item.Goals.Assists</b></div>
+                                                    </div>
+
+                                                    <div class="row">
+
+                                                        <div class="col"><h7>Passes Chave</h7></div>
+                                                        <div class="col"><b>@item.Passes.Key</b></div>
+                                                    </div>
+
+                                                    <div class="row">
+                                                        <div class="col"><h7>Dribbles</h7></div>
+                                                        <div class="col"> <b>@item.Dribbles.Attempts (@item.Dribbles.Success)</b></div>
+
+                                                    </div>
+
+
+                                                    <p class="card-text">
+                                                        <small class="text-muted">
+                                                            <h7>Rating - <b>@Math.Round(Convert.ToDouble(item.Games.Rating.Replace('.',',')),2)</b></h7>
+                                                        </small>
+                                                    </p>
+                                                }
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                </div>
+                            }
+
+                        </div>
+                    </div>
+                </div>
+
+
             }
-        </tbody>
-    </table>
 
+        </div>
+        <div class="tab-pane fade navtab-paddingtop" id="Tempo" role="tabpanel" aria-labelledby="profile-tab">
+            @if (Model.tempo != null)
+            {
+
+                var HoraJogo = @Model.DetalheJogo.Fixture.Date;
+                if (DateTime.Now.Date != HoraJogo)
+                {
+                    <h4>Não devemos mostrar o tempo para Jogos que não ocorram no dia atual...Contudo para efeitos de teste deixamos</h4>
+                }
+
+
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th>Temperatura</th>
+                            <th>Hora</th>
+                            <th>Estado do tempo</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @for (int i = 0; i < Model.tempo.Hourly.Temperature_2m.Count; i++)
+                        {
+                            <tr>
+                                <td>@Model.tempo.Hourly.Temperature_2m.ToList()[i]</td>
+                                <td>@Model.tempo.Hourly.Time.ToList()[i]</td>
+                                <td>
+                                    @switch (@Model.tempo.Hourly.Weather_code.ToList()[i])
+                                    {
+                                        case 0:
+                                            <b>Ceu limpo</b>
+                                            break;
+                                        case 1:
+                                            <b>Nuvens Leves</b>
+                                            break;
+                                        case 2:
+                                            <b>Nuvens medias</b>
+                                            break;
+
+                                        case 3:
+                                            <b>Bastante nublado</b>
+                                            break;
+
+                                        default:
+                                            <b>Sem informacao</b>
+                                            break;
+                                    }
+
+
+                                </td>
+
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            }
+            else
+            {
+                <h1>Serviço Indisponivel</h1>
+            }
+
+        </div>
+        <div class="tab-pane fade navtab-paddingtop" id="direcao" role="tabpanel" aria-labelledby="direcao-tab">
+            @if (Model.direcoes != null)
+            {
+                <table>
+                    <thead> <tr> <th>Origin</th> <th>Destino</th> <th>Distancia</th> <th>Duração</th> </tr> </thead>
+                    <tbody>
+
+                        @{
+                            var tete = Model.direcoes.Routes.ToList();
+                            var instructions = tete[0].Legs.ToList();
+                            var instructions2 = instructions[0].Steps.ToList();
+
+                        }
+                        @foreach (var item in instructions2)
+                        {
+                            <tr>
+                                <td>@item.Maneuver</td>
+                                <td>@item.Duration.Text</td>
+                                <td>@item.Distance.Text</td>
+                                <td>@Html.Raw(item.Html_instructions)</td>
+
+
+                            </tr>
+
+                        }
+                    </tbody>
+                </table>
+
+
+            }
+            else
+            {
+                <h1>Serviço Indisponivel</h1>
+            }
+
+        </div>
+        <div class="tab-pane fade navtab-paddingtop" id="lazer" role="tabpanel" aria-labelledby="lazer-tab">
+            @if (Model.lazer != null)
+            {
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th>Nome</th>
+                            <th>Rating</th>
+                            <th>Estado</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var prop in Model.lazer.Places.ToList())
+                        {
+                            <tr>
+                                <td>@prop.DisplayName.Text</td>
+                                <td>@prop.Rating</td>
+                                @switch (prop.BusinessStatus)
+                                {
+                                    case "OPERATIONAL":
+                                        <td> Aberto </td>
+                                        break;
+
+                                    default:
+                                        <td>Não foi possivel determinar o estado do lugar</td>
+                                        break;
+                                }
+
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+
+            }
+            else
+            {
+                <h1>Serviço Indisponivel</h1>
+            }
+        </div>
+        <div class="tab-pane fade navtab-paddingtop" id="Estacionamento" role="tabpanel" aria-labelledby="Estacionamento-tab">
+
+            @if (Model.parking != null)
+            {
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th>Nome</th>
+                            <th>Rating</th>
+                            <th>Estado</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+
+                        @foreach (var item in Model.parking.Places.ToList())
+                        {
+                            <tr>
+                                <td>@item.DisplayName.Text</td>
+                                <td>@item.Rating</td>
+                                <td>@item.BusinessStatus</td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            }
+            else
+            {
+                <h1>Serviço Indisponivel</h1>
+            }
+        </div>
+
+    </div>
 }
-else
-{
-    <p>There is no data available for Tempo</p>
-}
 
 
 
+
+
+
+
+
+
+
+
+<style>
+    .card {
+        box-shadow: 1px 2px 13px -5px rgba(20,10,20,0.4);
+    }
+
+    .border-bottom {
+        border-bottom: 1px solid #dee2e6 !important;
+    }
+
+    .navtab-paddingtop {
+        padding-top: 2em;
+    }
+
+    html {
+        font-size: 15px;
+
+        @@font-face {
+            font-family: 'Inter'; /*a name to be used later*/
+            src: url('Inter-ExtraLight.ttf'); /*URL to font*/
+        }
+
+        font-family: 'Inter'
+    }
+
+</style>

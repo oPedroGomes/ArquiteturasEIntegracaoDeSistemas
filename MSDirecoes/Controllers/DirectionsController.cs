@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Http;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using MSDirecoes.Models;
 using MSDirecoes.Services;
@@ -20,6 +21,7 @@ namespace MSDirecoes.Controllers
 
         [HttpPost]
         [Route("/directions")]
+        [Authorize]
         [ProducesResponseType(typeof(GoogleMapDirectionModel), StatusCodes.Status200OK)]
 
         public async Task<IActionResult> GetDirections([FromBody]Coordinates coordinates)
@@ -33,11 +35,5 @@ namespace MSDirecoes.Controllers
         }
 
 
-        [HttpPost]
-        [Route("/teste")]
-        public IActionResult teste([FromBody] Coordinates coordinates)
-        {
-            return Ok(new {fodasse = "123" });
-        }
     }
 }

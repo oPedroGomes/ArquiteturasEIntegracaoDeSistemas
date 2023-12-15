@@ -4,6 +4,9 @@
     <TargetFramework>net7.0</TargetFramework>
     <Nullable>enable</Nullable>
     <ImplicitUsings>enable</ImplicitUsings>
+    <DockerDefaultTargetOS>Linux</DockerDefaultTargetOS>
+    <DockerfileContext>.</DockerfileContext>
+    <UserSecretsId>988d252b-afa5-42a4-b6d2-bd42174e591f</UserSecretsId>
   </PropertyGroup>
 
   <ItemGroup>
@@ -43,6 +46,10 @@
     <OpenApiReference Include="OpenAPIs\swagger13.json" CodeGenerator="NSwagCSharp" ClassName="TempoAPI">
       <SourceUri>https://localhost:44314/swagger/v1/swagger.json</SourceUri>
     </OpenApiReference>
+    <OpenApiReference Include="OpenAPIs\swagger15.json" CodeGenerator="NSwagCSharp" ClassName="JogosAPI">
+      <SourceUri>https://localhost:44331/swagger/v1/swagger.json</SourceUri>
+    </OpenApiReference>
+    <None Include="OpenAPIs\swagger14.json" ClassName="JogosAPI" />
     <None Include="OpenAPIs\swagger6.json" ClassName="DirecoesAPI" />
     <None Include="OpenAPIs\swagger8.json" ClassName="EstacionamentoAPI" />
     <None Include="OpenAPIs\swagger9.json" ClassName="LazerAPI" />
@@ -50,20 +57,17 @@
   </ItemGroup>
 
   <ItemGroup>
+    <PackageReference Include="Microsoft.AspNetCore.Authentication.JwtBearer" Version="7.0.13" />
     <PackageReference Include="Microsoft.Extensions.ApiDescription.Client" Version="7.0.2">
       <PrivateAssets>all</PrivateAssets>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
     </PackageReference>
+    <PackageReference Include="Microsoft.VisualStudio.Azure.Containers.Tools.Targets" Version="1.19.4" />
     <PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
     <PackageReference Include="NSwag.ApiDescription.Client" Version="13.18.2">
       <PrivateAssets>all</PrivateAssets>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
     </PackageReference>
-  </ItemGroup>
-
-  <ItemGroup>
-    <ProjectReference Include="..\MSDirecoes\MSDirecoes.csproj" />
-    <ProjectReference Include="..\MSEstacionamento\MSEstacionamento.csproj" />
   </ItemGroup>
 
 </Project>

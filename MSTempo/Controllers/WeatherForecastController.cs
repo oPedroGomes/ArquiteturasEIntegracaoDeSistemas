@@ -1,3 +1,4 @@
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace MSTempo.Controllers
@@ -20,6 +21,7 @@ namespace MSTempo.Controllers
         [HttpGet("/weather")]
         [ProducesResponseType(typeof(WeatherForecast), StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status500InternalServerError)]
+        [Authorize]
        public async Task<IActionResult> Weather(string latitude,string longitude)
        {
             _logger.LogInformation("Recebeu pedido do tempo");

@@ -32,3 +32,10 @@ C:\IPCA\ArquiteturasEIntegracaoDeSistemas\MSLazer\obj\Debug\net7.0\refint\MSLaze
 C:\IPCA\ArquiteturasEIntegracaoDeSistemas\MSLazer\obj\Debug\net7.0\MSLazer.pdb
 C:\IPCA\ArquiteturasEIntegracaoDeSistemas\MSLazer\obj\Debug\net7.0\MSLazer.genruntimeconfig.cache
 C:\IPCA\ArquiteturasEIntegracaoDeSistemas\MSLazer\obj\Debug\net7.0\ref\MSLazer.dll
+C:\IPCA\ArquiteturasEIntegracaoDeSistemas\MSLazer\bin\Debug\net7.0\Microsoft.AspNetCore.Authentication.JwtBearer.dll
+C:\IPCA\ArquiteturasEIntegracaoDeSistemas\MSLazer\bin\Debug\net7.0\Microsoft.IdentityModel.JsonWebTokens.dll
+C:\IPCA\ArquiteturasEIntegracaoDeSistemas\MSLazer\bin\Debug\net7.0\Microsoft.IdentityModel.Logging.dll
+C:\IPCA\ArquiteturasEIntegracaoDeSistemas\MSLazer\bin\Debug\net7.0\Microsoft.IdentityModel.Protocols.dll
+C:\IPCA\ArquiteturasEIntegracaoDeSistemas\MSLazer\bin\Debug\net7.0\Microsoft.IdentityModel.Protocols.OpenIdConnect.dll
+C:\IPCA\ArquiteturasEIntegracaoDeSistemas\MSLazer\bin\Debug\net7.0\Microsoft.IdentityModel.Tokens.dll
+C:\IPCA\ArquiteturasEIntegracaoDeSistemas\MSLazer\bin\Debug\net7.0\System.IdentityModel.Tokens.Jwt.dll

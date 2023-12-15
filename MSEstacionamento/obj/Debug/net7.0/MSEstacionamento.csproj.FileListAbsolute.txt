@@ -32,8 +32,10 @@ C:\IPCA\ArquiteturasEIntegracaoDeSistemas\MSEstacionamento\obj\Debug\net7.0\refi
 C:\IPCA\ArquiteturasEIntegracaoDeSistemas\MSEstacionamento\obj\Debug\net7.0\MSEstacionamento.pdb
 C:\IPCA\ArquiteturasEIntegracaoDeSistemas\MSEstacionamento\obj\Debug\net7.0\MSEstacionamento.genruntimeconfig.cache
 C:\IPCA\ArquiteturasEIntegracaoDeSistemas\MSEstacionamento\obj\Debug\net7.0\ref\MSEstacionamento.dll
-C:\IPCA\ArquiteturasEIntegracaoDeSistemas\MSEstacionamento\bin\Debug\net7.0\MSDirecoes.deps.json
-C:\IPCA\ArquiteturasEIntegracaoDeSistemas\MSEstacionamento\bin\Debug\net7.0\MSDirecoes.runtimeconfig.json
-C:\IPCA\ArquiteturasEIntegracaoDeSistemas\MSEstacionamento\bin\Debug\net7.0\MSDirecoes.exe
-C:\IPCA\ArquiteturasEIntegracaoDeSistemas\MSEstacionamento\bin\Debug\net7.0\MSDirecoes.dll
-C:\IPCA\ArquiteturasEIntegracaoDeSistemas\MSEstacionamento\bin\Debug\net7.0\MSDirecoes.pdb
+C:\IPCA\ArquiteturasEIntegracaoDeSistemas\MSEstacionamento\bin\Debug\net7.0\Microsoft.AspNetCore.Authentication.JwtBearer.dll
+C:\IPCA\ArquiteturasEIntegracaoDeSistemas\MSEstacionamento\bin\Debug\net7.0\Microsoft.IdentityModel.JsonWebTokens.dll
+C:\IPCA\ArquiteturasEIntegracaoDeSistemas\MSEstacionamento\bin\Debug\net7.0\Microsoft.IdentityModel.Logging.dll
+C:\IPCA\ArquiteturasEIntegracaoDeSistemas\MSEstacionamento\bin\Debug\net7.0\Microsoft.IdentityModel.Protocols.dll
+C:\IPCA\ArquiteturasEIntegracaoDeSistemas\MSEstacionamento\bin\Debug\net7.0\Microsoft.IdentityModel.Protocols.OpenIdConnect.dll
+C:\IPCA\ArquiteturasEIntegracaoDeSistemas\MSEstacionamento\bin\Debug\net7.0\Microsoft.IdentityModel.Tokens.dll
+C:\IPCA\ArquiteturasEIntegracaoDeSistemas\MSEstacionamento\bin\Debug\net7.0\System.IdentityModel.Tokens.Jwt.dll

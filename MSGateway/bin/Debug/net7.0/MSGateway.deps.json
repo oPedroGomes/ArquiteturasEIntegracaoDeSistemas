@@ -9,18 +9,21 @@
       "MSGateway/1.0.0": {
         "dependencies": {
           "Microsoft.AspNetCore.OpenApi": "7.0.12",
-          "Ocelot": "20.0.0",
+          "Microsoft.VisualStudio.Azure.Containers.Tools.Targets": "1.19.4",
+          "Ocelot": "21.0.0",
+          "Ocelot.Provider.Polly": "21.0.0",
+          "Polly": "8.2.0",
           "Swashbuckle.AspNetCore": "6.5.0"
         },
         "runtime": {
           "MSGateway.dll": {}
         }
       },
-      "FluentValidation/11.5.2": {
+      "FluentValidation/11.8.0": {
         "runtime": {
           "lib/net7.0/FluentValidation.dll": {
             "assemblyVersion": "11.0.0.0",
-            "fileVersion": "11.5.2.0"
+            "fileVersion": "11.8.0.0"
           }
         }
       },
@@ -32,39 +35,39 @@
           }
         }
       },
-      "Microsoft.AspNetCore.JsonPatch/7.0.5": {
+      "Microsoft.AspNetCore.JsonPatch/7.0.14": {
         "dependencies": {
           "Microsoft.CSharp": "4.7.0",
           "Newtonsoft.Json": "13.0.1"
         },
         "runtime": {
           "lib/net7.0/Microsoft.AspNetCore.JsonPatch.dll": {
-            "assemblyVersion": "7.0.5.0",
-            "fileVersion": "7.0.523.17410"
+            "assemblyVersion": "7.0.14.0",
+            "fileVersion": "7.0.1423.52316"
           }
         }
       },
-      "Microsoft.AspNetCore.MiddlewareAnalysis/7.0.5": {
+      "Microsoft.AspNetCore.MiddlewareAnalysis/7.0.14": {
         "dependencies": {
           "Microsoft.Extensions.DependencyInjection.Abstractions": "7.0.0"
         },
         "runtime": {
           "lib/net7.0/Microsoft.AspNetCore.MiddlewareAnalysis.dll": {
-            "assemblyVersion": "7.0.5.0",
-            "fileVersion": "7.0.523.17410"
+            "assemblyVersion": "7.0.14.0",
+            "fileVersion": "7.0.1423.52316"
           }
         }
       },
-      "Microsoft.AspNetCore.Mvc.NewtonsoftJson/7.0.5": {
+      "Microsoft.AspNetCore.Mvc.NewtonsoftJson/7.0.14": {
         "dependencies": {
-          "Microsoft.AspNetCore.JsonPatch": "7.0.5",
+          "Microsoft.AspNetCore.JsonPatch": "7.0.14",
           "Newtonsoft.Json": "13.0.1",
           "Newtonsoft.Json.Bson": "1.0.2"
         },
         "runtime": {
           "lib/net7.0/Microsoft.AspNetCore.Mvc.NewtonsoftJson.dll": {
-            "assemblyVersion": "7.0.5.0",
-            "fileVersion": "7.0.523.17410"
+            "assemblyVersion": "7.0.14.0",
+            "fileVersion": "7.0.1423.52316"
           }
         }
       },
@@ -76,6 +79,25 @@
           "lib/net7.0/Microsoft.AspNetCore.OpenApi.dll": {
             "assemblyVersion": "7.0.12.0",
             "fileVersion": "7.0.1223.47922"
+          }
+        }
+      },
+      "Microsoft.Bcl.AsyncInterfaces/6.0.0": {
+        "runtime": {
+          "lib/netstandard2.1/Microsoft.Bcl.AsyncInterfaces.dll": {
+            "assemblyVersion": "6.0.0.0",
+            "fileVersion": "6.0.21.52210"
+          }
+        }
+      },
+      "Microsoft.Bcl.TimeProvider/8.0.0": {
+        "dependencies": {
+          "Microsoft.Bcl.AsyncInterfaces": "6.0.0"
+        },
+        "runtime": {
+          "lib/netstandard2.0/Microsoft.Bcl.TimeProvider.dll": {
+            "assemblyVersion": "8.0.0.0",
+            "fileVersion": "8.0.23.53103"
           }
         }
       },
@@ -101,6 +123,7 @@
           }
         }
       },
+      "Microsoft.VisualStudio.Azure.Containers.Tools.Targets/1.19.4": {},
       "Newtonsoft.Json/13.0.1": {
         "runtime": {
           "lib/netstandard2.0/Newtonsoft.Json.dll": {
@@ -120,18 +143,52 @@
           }
         }
       },
-      "Ocelot/20.0.0": {
+      "Ocelot/21.0.0": {
         "dependencies": {
-          "FluentValidation": "11.5.2",
+          "FluentValidation": "11.8.0",
           "IPAddressRange": "6.0.0",
-          "Microsoft.AspNetCore.MiddlewareAnalysis": "7.0.5",
-          "Microsoft.AspNetCore.Mvc.NewtonsoftJson": "7.0.5",
+          "Microsoft.AspNetCore.MiddlewareAnalysis": "7.0.14",
+          "Microsoft.AspNetCore.Mvc.NewtonsoftJson": "7.0.14",
           "Microsoft.Extensions.DiagnosticAdapter": "3.1.32"
         },
         "runtime": {
           "lib/net7.0/Ocelot.dll": {
-            "assemblyVersion": "20.0.0.0",
-            "fileVersion": "20.0.0.0"
+            "assemblyVersion": "21.0.0.0",
+            "fileVersion": "21.0.0.0"
+          }
+        }
+      },
+      "Ocelot.Provider.Polly/21.0.0": {
+        "dependencies": {
+          "Ocelot": "21.0.0",
+          "Polly": "8.2.0"
+        },
+        "runtime": {
+          "lib/net7.0/Ocelot.Provider.Polly.dll": {
+            "assemblyVersion": "21.0.0.0",
+            "fileVersion": "21.0.0.0"
+          }
+        }
+      },
+      "Polly/8.2.0": {
+        "dependencies": {
+          "Polly.Core": "8.2.0"
+        },
+        "runtime": {
+          "lib/net6.0/Polly.dll": {
+            "assemblyVersion": "8.0.0.0",
+            "fileVersion": "8.2.0.2702"
+          }
+        }
+      },
+      "Polly.Core/8.2.0": {
+        "dependencies": {
+          "Microsoft.Bcl.TimeProvider": "8.0.0"
+        },
+        "runtime": {
+          "lib/net6.0/Polly.Core.dll": {
+            "assemblyVersion": "8.0.0.0",
+            "fileVersion": "8.2.0.2702"
           }
         }
       },
@@ -182,12 +239,12 @@
       "serviceable": false,
       "sha512": ""
     },
-    "FluentValidation/11.5.2": {
+    "FluentValidation/11.8.0": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-kj/hW/iusp2zq1Vt1YPLgDj6UG0DhoJXGkLwjLwm3j7vUtRF8DVA5vHJfItG3BxDjLWJUR2pvw8fK7rnuysZNA==",
-      "path": "fluentvalidation/11.5.2",
-      "hashPath": "fluentvalidation.11.5.2.nupkg.sha512"
+      "sha512": "sha512-TiEaaYqSIAS+wXQv46LRm8Mca092XYNePD0n231Hqlkmm5FuToZoWnjI1ef/vJUxBzqR7/k2vaVQXxijNgVKRQ==",
+      "path": "fluentvalidation/11.8.0",
+      "hashPath": "fluentvalidation.11.8.0.nupkg.sha512"
     },
     "IPAddressRange/6.0.0": {
       "type": "package",
@@ -196,26 +253,26 @@
       "path": "ipaddressrange/6.0.0",
       "hashPath": "ipaddressrange.6.0.0.nupkg.sha512"
     },
-    "Microsoft.AspNetCore.JsonPatch/7.0.5": {
+    "Microsoft.AspNetCore.JsonPatch/7.0.14": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-WTD0lUlrQEHF0eWlnwJJgBYK1WDI2KHeCLi46YY0mTOebwg+58l/lj+A3EerwC0aMyTB/yLaamjkCRRDVupCeA==",
-      "path": "microsoft.aspnetcore.jsonpatch/7.0.5",
-      "hashPath": "microsoft.aspnetcore.jsonpatch.7.0.5.nupkg.sha512"
+      "sha512": "sha512-JDfx+i3bXFJ05ELOQbrgSnQxCbN2bHh2KXtMCQlceqIHVlHSiex+m6sUpx6UCUQzAhYkLktTQdFKsHYAb57hxQ==",
+      "path": "microsoft.aspnetcore.jsonpatch/7.0.14",
+      "hashPath": "microsoft.aspnetcore.jsonpatch.7.0.14.nupkg.sha512"
     },
-    "Microsoft.AspNetCore.MiddlewareAnalysis/7.0.5": {
+    "Microsoft.AspNetCore.MiddlewareAnalysis/7.0.14": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-Ahv4Hanicg5/9n4gJ5uemm8NS5oinOTs83e49yock9Iu5wMBEOnwgEkdE43yLaU7UT719hw9oalLmIMKEkr1hQ==",
-      "path": "microsoft.aspnetcore.middlewareanalysis/7.0.5",
-      "hashPath": "microsoft.aspnetcore.middlewareanalysis.7.0.5.nupkg.sha512"
+      "sha512": "sha512-ZLy9eWEkgWnv9tM8tj4wpsNRyQ1zALDLZemh2prWO25x0VaSpTsvt8RYVwZ0hLnjQI8VubaLAEJ1il7zB22u/Q==",
+      "path": "microsoft.aspnetcore.middlewareanalysis/7.0.14",
+      "hashPath": "microsoft.aspnetcore.middlewareanalysis.7.0.14.nupkg.sha512"
     },
-    "Microsoft.AspNetCore.Mvc.NewtonsoftJson/7.0.5": {
+    "Microsoft.AspNetCore.Mvc.NewtonsoftJson/7.0.14": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-zOhqXibiA14gy0rFkvvSp0BYnz3lsZ82R9vXJ3H+KCz+TXWIjP6wuqwc97bc00ppCB2oK4jQbii+q9phv18WAg==",
-      "path": "microsoft.aspnetcore.mvc.newtonsoftjson/7.0.5",
-      "hashPath": "microsoft.aspnetcore.mvc.newtonsoftjson.7.0.5.nupkg.sha512"
+      "sha512": "sha512-pqXWiNXjgnAzofH5E+HzmYppy58+X2TY8gSao7PyWf1wa4IjHosNQ2UvnRZ0GRYgyV9xcQwuaKBFQqOJPCFCkg==",
+      "path": "microsoft.aspnetcore.mvc.newtonsoftjson/7.0.14",
+      "hashPath": "microsoft.aspnetcore.mvc.newtonsoftjson.7.0.14.nupkg.sha512"
     },
     "Microsoft.AspNetCore.OpenApi/7.0.12": {
       "type": "package",
@@ -223,6 +280,20 @@
       "sha512": "sha512-KWfmBcvglieWin4srGSPiREh8/8+qCJpME9MPbsN2OVOwKkMXKta2K82Xk0BcZrZCk9tftMBO6qYfJgz0goQpg==",
       "path": "microsoft.aspnetcore.openapi/7.0.12",
       "hashPath": "microsoft.aspnetcore.openapi.7.0.12.nupkg.sha512"
+    },
+    "Microsoft.Bcl.AsyncInterfaces/6.0.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-UcSjPsst+DfAdJGVDsu346FX0ci0ah+lw3WRtn18NUwEqRt70HaOQ7lI72vy3+1LxtqI3T5GWwV39rQSrCzAeg==",
+      "path": "microsoft.bcl.asyncinterfaces/6.0.0",
+      "hashPath": "microsoft.bcl.asyncinterfaces.6.0.0.nupkg.sha512"
+    },
+    "Microsoft.Bcl.TimeProvider/8.0.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-f5Kr5JepAbiGo7uDmhgvMqhntwxqXNn6/IpTBSSI4cuHhgnJGrLxFRhMjVpRkLPp6zJXO0/G0l3j9p9zSJxa+w==",
+      "path": "microsoft.bcl.timeprovider/8.0.0",
+      "hashPath": "microsoft.bcl.timeprovider.8.0.0.nupkg.sha512"
     },
     "Microsoft.CSharp/4.7.0": {
       "type": "package",
@@ -259,6 +330,13 @@
       "path": "microsoft.openapi/1.4.3",
       "hashPath": "microsoft.openapi.1.4.3.nupkg.sha512"
     },
+    "Microsoft.VisualStudio.Azure.Containers.Tools.Targets/1.19.4": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-aKxpRAUIxDrnSnyr7xJWGixOBgsB7Z4oHpWRkpRzzq04kfze4mN7944gRc4X9H2U5KG3A/btF74kavkO8KXqCg==",
+      "path": "microsoft.visualstudio.azure.containers.tools.targets/1.19.4",
+      "hashPath": "microsoft.visualstudio.azure.containers.tools.targets.1.19.4.nupkg.sha512"
+    },
     "Newtonsoft.Json/13.0.1": {
       "type": "package",
       "serviceable": true,
@@ -273,12 +351,33 @@
       "path": "newtonsoft.json.bson/1.0.2",
       "hashPath": "newtonsoft.json.bson.1.0.2.nupkg.sha512"
     },
-    "Ocelot/20.0.0": {
+    "Ocelot/21.0.0": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-cvk2vti1hILD2MeEWuxWUxp5tx9Bx8y4YZa6lOc6T+Y5GXbkWsO6og7F+8MIolp140TKLyvsAim1XYirPdN3dw==",
-      "path": "ocelot/20.0.0",
-      "hashPath": "ocelot.20.0.0.nupkg.sha512"
+      "sha512": "sha512-av6uL2OqeIEgyQmldlxA/qOgJHLaiXZMGOZW+PWqEDrK8kUOoUqJObkbCLM5PeIlZhmduVsqWULdBxe9kKhDxQ==",
+      "path": "ocelot/21.0.0",
+      "hashPath": "ocelot.21.0.0.nupkg.sha512"
+    },
+    "Ocelot.Provider.Polly/21.0.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-QF1Ni042/eBzM9ONg98YgwVFdoYjA84305rtIkLUjJOE5fUlwpxqMkebB4x/UJa3dPcV990mW9aJaAAmAFf8QQ==",
+      "path": "ocelot.provider.polly/21.0.0",
+      "hashPath": "ocelot.provider.polly.21.0.0.nupkg.sha512"
+    },
+    "Polly/8.2.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-KZm8iG29y6Mse7YntYYJSf5fGWuhYLliWgZaG/8NcuXS4gN7SPdtPYpjCxQlHqxvMGubkWVrGp3MvUaI7SkyKA==",
+      "path": "polly/8.2.0",
+      "hashPath": "polly.8.2.0.nupkg.sha512"
+    },
+    "Polly.Core/8.2.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-gnKp3+mxGFmkFs4eHcD9aex0JOF8zS1Y18c2A5ckXXTVqbs6XLcDyLKgSa/mUFqAnH3mn9+uVIM0RhAec/d3kA==",
+      "path": "polly.core/8.2.0",
+      "hashPath": "polly.core.8.2.0.nupkg.sha512"
     },
     "Swashbuckle.AspNetCore/6.5.0": {
       "type": "package",

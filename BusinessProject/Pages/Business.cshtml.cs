@@ -6,76 +6,171 @@ namespace BusinessProject.Pages
 {
     public class BusinessModel : PageModel
     {
-        private readonly BusinessClass _businessClass;
+        private  BusinessClass _businessClass;
 
         public GoogleMapDirectionModel direcoes { get; set; }
         public ParkingResponse parking { get; set; }
-
-        public PlacesResponseLazer lazer{ get; set; }
-
+        public PlacesResponseLazer lazer { get; set; }
         public WeatherForecast tempo { get; set; }
+        public List<ResponseJogo> Jogos { get; set; }  
 
-        public BusinessModel(BusinessClass businessClass)
+        public ResponseJogo DetalheJogo { get; set; }
+
+        [BindProperty]
+        public int? IdJogo { get; set; }
+        public List<ResponseTopScorers> TopScorers { get; set; }
+
+        public BusinessModel()
         {
-            _businessClass = businessClass;
         }
 
-        public async Task<IActionResult> OnGetAsync()
+        public IActionResult OnGet()
         {
-            //Comentado para não estar a fazer chamadas desnecessárias --------------------------------------
-
-            direcoes = await _businessClass.GetDirections(new Coordinates()
+            if(string.IsNullOrEmpty(Global.BERARER_TOKEN))
             {
-                From = new Coordinate() { Latitute = "41.532051", Longitude = "-8.619053" },
-                To = new Coordinate() { Latitute = "41.499340", Longitude = "-8.421150" }
-            });
+                return RedirectToPage("SetBearerToken");
+            }
+            
+            _businessClass = new BusinessClass(Global.BERARER_TOKEN);
+            return Page();
+        }
+        public async Task<IActionResult> OnPostDetalhe()
+        {
+            _businessClass = new BusinessClass(Global.BERARER_TOKEN);
 
-            //Comentado para não estar a fazer chamadas desnecessárias --------------------------------------
-            parking = await _businessClass.GetParkingDirections(new SearchParameters()
+            if (IdJogo == null)
+                return RedirectToPage("Business");
+
+            DetalheJogo = await _businessClass.GetJogoById(IdJogo,true);
+            ResponseEquipa resp;
+            try
             {
-                IncludedTypes = new List<string>() { "parking" },
-                MaxResultCount = 10,
-                LocationRestriction = new LocationRestriction()
+             resp = await _businessClass.GetEquipaById(DetalheJogo.Teams.Home.Id);
+            }catch(Exception ex)
+            {
+                resp = null;
+            }
+
+            if(resp != null)
+            {
+                string latitude = resp.Venue.Latitude.Replace(',', '.');
+                string longitude = resp.Venue.Longitude.Replace(',', '.');
+
+                try
                 {
-
-
-                    Circle = new Circle()
-                    {
-                        Center = new Center()
-                        {
-                            Latitude = 41.532051,
-                            Longitude = -8.619053
-                        },
-                        Radius = 10000
-                    }
+                    tempo = await _businessClass.GetWeather(latitude.Replace(',', '.'), longitude.Replace(',', '.'));
                 }
-            });
-
-            lazer = await _businessClass.GetPlaces(new SearchParametersLazer()
-            {
-                IncludedTypes = new List<string>() { "restaurant", "bar" },
-                MaxResultCount = 10,
-                LocationRestriction = new LocationRestrictionLazer()
+                catch (Exception ex)
                 {
+                    tempo = null;
+                }
 
-                    Circle = new CircleLazer()
+                try
+                {
+                    direcoes = await _businessClass.GetDirections(new Coordinates()
                     {
-                        Center = new CenterLazer()
+                        From = new Coordinate() { Latitute = "41.532051", Longitude = "-8.619053" },
+                        To = new Coordinate() { Latitute = latitude, Longitude = longitude }
+                    });
+                }
+                catch (Exception ex)
+                {
+                    direcoes = null;
+                }
+
+
+                try
+                {
+                    lazer = await _businessClass.GetPlaces(new SearchParametersLazer()
+                    {
+                        IncludedTypes = new List<string>() { "restaurant", "bar" },
+                        MaxResultCount = 10,
+                        LocationRestriction = new LocationRestrictionLazer()
                         {
-                            Latitude = 41.532051,
-                            Longitude = -8.619053
-                        },
-                        Radius = 10000
-                    }
+
+                            Circle = new CircleLazer()
+                            {
+                                Center = new CenterLazer()
+                                {
+                                    Latitude = Double.Parse(latitude.Replace('.', ',')),
+                                    Longitude = Double.Parse(longitude.Replace('.', ','))
+                                },
+                                Radius = 10000
+                            }
+
+                        }
+                    });
 
                 }
-            });
+                catch (Exception ex)
+                {
+                    lazer = null;
+                }
+
+                try
+                {
+                    parking = await _businessClass.GetParkingDirections(new SearchParameters()
+                    {
+                        IncludedTypes = new List<string>() { "parking" },
+                        MaxResultCount = 10,
+                        LocationRestriction = new LocationRestriction()
+                        {
 
 
-            tempo = await _businessClass.GetWeather("41.532051", "-8.619053");
+                            Circle = new Circle()
+                            {
+                                Center = new Center()
+                                {
+                                    Latitude = Double.Parse(latitude.Replace('.', ',')),
+                                    Longitude = Double.Parse(longitude.Replace('.', ','))
+                                },
+                                Radius = 10000
+                            }
+                        }
+                    });
+                }
+                catch (Exception ex)
+                {
+                    parking = null;
+                }
+
+            }
+
+
+
+
+            try
+            {
+                TopScorers = await _businessClass.GetTopScorers();
+            }
+            catch (Exception ex)
+            {
+                TopScorers = null;
+            }
+
+
+
+            return Page();
+        }
+        public async Task<IActionResult> OnPost(string clube)
+        {
+            _businessClass = new BusinessClass(Global.BERARER_TOKEN);
+
+            try
+            {
+                Jogos = await _businessClass.GetJogos(clube, null);
+            }
+            catch (Exception ex)
+            {
+                Jogos = null;
+            }
+
+
+            
 
             return Page();
 
         }
+
     }
 }

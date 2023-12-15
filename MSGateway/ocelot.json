@@ -1,6 +1,6 @@
 {
   "GlobalConfiguration": {
-    "BaseUrl": "https://localhost:44365"
+    "BaseUrl": "http://localhost:44365"
 
   },
   "Routes": [
@@ -8,15 +8,85 @@
       "UpstreamPathTemplate": "/gateway/Register",
       "UpstreamHttpMethod": [ "POST" ],
       "DownstreamPathTemplate": "/Register",
-      "DownstreamScheme": "https",
+      "DownstreamScheme": "http",
       "DownstreamHostAndPorts": [
         {
           "Host": "localhost",
-          "Port": 44386
+          "Port": 26722
         }
       ]
 
-    }   
+    },
+    {
+      "UpstreamPathTemplate": "/gateway/Login",
+      "UpstreamHttpMethod": [ "POST" ],
+      "DownstreamPathTemplate": "/Login",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": 26722
+        }
+      ]
+
+    },
+    {
+      "UpstreamPathTemplate": "/gateway/User/{UserId}",
+      "UpstreamHttpMethod": [ "GET" ],
+      "DownstreamPathTemplate": "/User/{UserId}",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": 26722
+        }
+      ]
+
+    },
+    {
+      "UpstreamPathTemplate": "/gateway/Update",
+      "UpstreamHttpMethod": [ "PUT" ],
+      "DownstreamPathTemplate": "/Update",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": 26722
+        }
+      ]
+
+    },
+    {
+      "UpstreamPathTemplate": "/gateway/refresh-token",
+      "UpstreamHttpMethod": [ "POST" ],
+      "DownstreamPathTemplate": "/refresh-token",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": 26722
+        }
+      ]
+
+    },
+    {
+      "UpstreamPathTemplate": "/gateway/teste",
+      "UpstreamHttpMethod": [ "GET" ],
+      "DownstreamPathTemplate": "/teste",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": 26722
+        }
+      ],
+      
+      "QoSOptions": {
+        "ExceptionsAllowedBeforeBreaking": 2,
+        "TimeoutValue": 10000,
+        "DurationOfBreak": 5000
+      }
+    }
 
   ]
 }

@@ -1,0 +1,1435 @@
+{
+  "openapi": "3.0.1",
+  "info": {
+    "title": "MSJogos",
+    "version": "1.0"
+  },
+  "paths": {
+    "/updateligas": {
+      "put": {
+        "tags": [
+          "AdminJogos"
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/updateestadios": {
+      "put": {
+        "tags": [
+          "AdminJogos"
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/updatejogos": {
+      "put": {
+        "tags": [
+          "AdminJogos"
+        ],
+        "parameters": [
+          {
+            "name": "ligaID",
+            "in": "query",
+            "style": "form",
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/updateequipas": {
+      "put": {
+        "tags": [
+          "AdminJogos"
+        ],
+        "parameters": [
+          {
+            "name": "ligaID",
+            "in": "query",
+            "style": "form",
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/topscorers": {
+      "put": {
+        "tags": [
+          "AdminJogos"
+        ],
+        "parameters": [
+          {
+            "name": "IdLiga",
+            "in": "query",
+            "style": "form",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      },
+      "get": {
+        "tags": [
+          "Jogos"
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/ResponseTopScorers"
+                  }
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/ResponseTopScorers"
+                  }
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/ResponseTopScorers"
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request"
+          }
+        }
+      }
+    },
+    "/updatecoordenadas": {
+      "put": {
+        "tags": [
+          "AdminJogos"
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/GetLogsJogos": {
+      "get": {
+        "tags": [
+          "AdminJogos"
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/LogJogos"
+                  }
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/LogJogos"
+                  }
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/LogJogos"
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request"
+          },
+          "401": {
+            "description": "Unauthorized"
+          }
+        }
+      }
+    },
+    "/GetLogsEquipas": {
+      "get": {
+        "tags": [
+          "AdminJogos"
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/LogEquipas"
+                  }
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/LogEquipas"
+                  }
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/LogEquipas"
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request"
+          },
+          "401": {
+            "description": "Unauthorized"
+          }
+        }
+      }
+    },
+    "/jogos": {
+      "get": {
+        "tags": [
+          "Jogos"
+        ],
+        "parameters": [
+          {
+            "name": "equipa",
+            "in": "query",
+            "style": "form",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "dataFim",
+            "in": "query",
+            "style": "form",
+            "schema": {
+              "type": "string",
+              "format": "date-time"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/ResponseJogo"
+                  }
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/ResponseJogo"
+                  }
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/ResponseJogo"
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request"
+          }
+        }
+      }
+    },
+    "/estadio": {
+      "get": {
+        "tags": [
+          "Jogos"
+        ],
+        "parameters": [
+          {
+            "name": "idEquipa",
+            "in": "query",
+            "style": "form",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/ResponseEstadio"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ResponseEstadio"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ResponseEstadio"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request"
+          }
+        }
+      }
+    },
+    "/ligas": {
+      "get": {
+        "tags": [
+          "Jogos"
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/ResponseLiga"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ResponseLiga"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ResponseLiga"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request"
+          }
+        }
+      }
+    },
+    "/jogo": {
+      "get": {
+        "tags": [
+          "Jogos"
+        ],
+        "parameters": [
+          {
+            "name": "fixtureId",
+            "in": "query",
+            "style": "form",
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          },
+          {
+            "name": "saveLog",
+            "in": "query",
+            "style": "form",
+            "schema": {
+              "type": "boolean",
+              "default": false
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/ResponseJogo"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ResponseJogo"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ResponseJogo"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request"
+          }
+        }
+      }
+    },
+    "/equipa": {
+      "get": {
+        "tags": [
+          "Jogos"
+        ],
+        "parameters": [
+          {
+            "name": "equipaId",
+            "in": "query",
+            "style": "form",
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/ResponseEquipa"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ResponseEquipa"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ResponseEquipa"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request"
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "AwayJogo": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "name": {
+            "type": "string",
+            "nullable": true
+          },
+          "logo": {
+            "type": "string",
+            "nullable": true
+          },
+          "winner": {
+            "type": "boolean",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "BirthTopScorers": {
+        "type": "object",
+        "properties": {
+          "date": {
+            "type": "string",
+            "nullable": true
+          },
+          "place": {
+            "type": "string",
+            "nullable": true
+          },
+          "country": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "CardsTopScorers": {
+        "type": "object",
+        "properties": {
+          "yellow": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "yellowred": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "red": {
+            "type": "integer",
+            "format": "int32"
+          }
+        },
+        "additionalProperties": false
+      },
+      "CountryLiga": {
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string",
+            "nullable": true
+          },
+          "code": {
+            "type": "string",
+            "nullable": true
+          },
+          "flag": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "CoverageLiga": {
+        "type": "object",
+        "properties": {
+          "fixtures": {
+            "$ref": "#/components/schemas/FixturesLiga"
+          },
+          "standings": {
+            "type": "boolean"
+          },
+          "players": {
+            "type": "boolean"
+          },
+          "top_scorers": {
+            "type": "boolean"
+          },
+          "top_assists": {
+            "type": "boolean"
+          },
+          "top_cards": {
+            "type": "boolean"
+          },
+          "injuries": {
+            "type": "boolean"
+          },
+          "predictions": {
+            "type": "boolean"
+          },
+          "odds": {
+            "type": "boolean"
+          }
+        },
+        "additionalProperties": false
+      },
+      "DribblesTopScorers": {
+        "type": "object",
+        "properties": {
+          "attempts": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "success": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "past": {
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "DuelsTopScorers": {
+        "type": "object",
+        "properties": {
+          "total": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "won": {
+            "type": "integer",
+            "format": "int32"
+          }
+        },
+        "additionalProperties": false
+      },
+      "ExtratimeJogo": {
+        "type": "object",
+        "properties": {
+          "home": {
+            "nullable": true
+          },
+          "away": {
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "FixtureJogo": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "referee": {
+            "type": "string",
+            "nullable": true
+          },
+          "timezone": {
+            "type": "string",
+            "nullable": true
+          },
+          "date": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "timestamp": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "periods": {
+            "$ref": "#/components/schemas/PeriodsJogo"
+          },
+          "venue": {
+            "$ref": "#/components/schemas/VenueJogo"
+          },
+          "status": {
+            "$ref": "#/components/schemas/StatusJogo"
+          }
+        },
+        "additionalProperties": false
+      },
+      "FixturesLiga": {
+        "type": "object",
+        "properties": {
+          "events": {
+            "type": "boolean"
+          },
+          "lineups": {
+            "type": "boolean"
+          },
+          "statistics_fixtures": {
+            "type": "boolean"
+          },
+          "statistics_players": {
+            "type": "boolean"
+          }
+        },
+        "additionalProperties": false
+      },
+      "FoulsTopScorers": {
+        "type": "object",
+        "properties": {
+          "drawn": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "committed": {
+            "type": "integer",
+            "format": "int32"
+          }
+        },
+        "additionalProperties": false
+      },
+      "FulltimeJogo": {
+        "type": "object",
+        "properties": {
+          "home": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "away": {
+            "type": "integer",
+            "format": "int32"
+          }
+        },
+        "additionalProperties": false
+      },
+      "GamesTopScorers": {
+        "type": "object",
+        "properties": {
+          "appearences": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "lineups": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "minutes": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "number": {
+            "nullable": true
+          },
+          "position": {
+            "type": "string",
+            "nullable": true
+          },
+          "rating": {
+            "type": "string",
+            "nullable": true
+          },
+          "captain": {
+            "type": "boolean"
+          }
+        },
+        "additionalProperties": false
+      },
+      "GoalsJogo": {
+        "type": "object",
+        "properties": {
+          "home": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "away": {
+            "type": "integer",
+            "format": "int32"
+          }
+        },
+        "additionalProperties": false
+      },
+      "GoalsTopScorers": {
+        "type": "object",
+        "properties": {
+          "total": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "conceded": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "assists": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "saves": {
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "HalftimeJogo": {
+        "type": "object",
+        "properties": {
+          "home": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "away": {
+            "type": "integer",
+            "format": "int32"
+          }
+        },
+        "additionalProperties": false
+      },
+      "HomeJogo": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "name": {
+            "type": "string",
+            "nullable": true
+          },
+          "logo": {
+            "type": "string",
+            "nullable": true
+          },
+          "winner": {
+            "type": "boolean",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "LeagueJogo": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "name": {
+            "type": "string",
+            "nullable": true
+          },
+          "country": {
+            "type": "string",
+            "nullable": true
+          },
+          "logo": {
+            "type": "string",
+            "nullable": true
+          },
+          "flag": {
+            "type": "string",
+            "nullable": true
+          },
+          "season": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "round": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "LeagueLiga": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "name": {
+            "type": "string",
+            "nullable": true
+          },
+          "type": {
+            "type": "string",
+            "nullable": true
+          },
+          "logo": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "LeagueTopScorers": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "name": {
+            "type": "string",
+            "nullable": true
+          },
+          "country": {
+            "type": "string",
+            "nullable": true
+          },
+          "logo": {
+            "type": "string",
+            "nullable": true
+          },
+          "flag": {
+            "type": "string",
+            "nullable": true
+          },
+          "season": {
+            "type": "integer",
+            "format": "int32"
+          }
+        },
+        "additionalProperties": false
+      },
+      "LogEquipas": {
+        "type": "object",
+        "properties": {
+          "dataCria": {
+            "type": "string",
+            "nullable": true
+          },
+          "email": {
+            "type": "string",
+            "nullable": true
+          },
+          "equipa": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "LogJogos": {
+        "type": "object",
+        "properties": {
+          "dataCria": {
+            "type": "string",
+            "nullable": true
+          },
+          "email": {
+            "type": "string",
+            "nullable": true
+          },
+          "idJogo": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "PassesTopScorers": {
+        "type": "object",
+        "properties": {
+          "total": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "key": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "accuracy": {
+            "type": "integer",
+            "format": "int32"
+          }
+        },
+        "additionalProperties": false
+      },
+      "PenaltyJogo": {
+        "type": "object",
+        "properties": {
+          "home": {
+            "nullable": true
+          },
+          "away": {
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "PenaltyTopScorers": {
+        "type": "object",
+        "properties": {
+          "won": {
+            "nullable": true
+          },
+          "commited": {
+            "nullable": true
+          },
+          "scored": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "missed": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "saved": {
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "PeriodsJogo": {
+        "type": "object",
+        "properties": {
+          "first": {
+            "type": "string",
+            "nullable": true
+          },
+          "second": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "PlayerTopScorers": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "name": {
+            "type": "string",
+            "nullable": true
+          },
+          "firstname": {
+            "type": "string",
+            "nullable": true
+          },
+          "lastname": {
+            "type": "string",
+            "nullable": true
+          },
+          "age": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "birth": {
+            "$ref": "#/components/schemas/BirthTopScorers"
+          },
+          "nationality": {
+            "type": "string",
+            "nullable": true
+          },
+          "height": {
+            "type": "string",
+            "nullable": true
+          },
+          "weight": {
+            "type": "string",
+            "nullable": true
+          },
+          "injured": {
+            "type": "boolean"
+          },
+          "photo": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "ResponseEquipa": {
+        "type": "object",
+        "properties": {
+          "team": {
+            "$ref": "#/components/schemas/TeamEquipa"
+          },
+          "venue": {
+            "$ref": "#/components/schemas/VenueEquipa"
+          }
+        },
+        "additionalProperties": false
+      },
+      "ResponseEstadio": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "name": {
+            "type": "string",
+            "nullable": true
+          },
+          "address": {
+            "type": "string",
+            "nullable": true
+          },
+          "city": {
+            "type": "string",
+            "nullable": true
+          },
+          "country": {
+            "type": "string",
+            "nullable": true
+          },
+          "capacity": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "surface": {
+            "type": "string",
+            "nullable": true
+          },
+          "image": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "ResponseJogo": {
+        "type": "object",
+        "properties": {
+          "fixture": {
+            "$ref": "#/components/schemas/FixtureJogo"
+          },
+          "league": {
+            "$ref": "#/components/schemas/LeagueJogo"
+          },
+          "teams": {
+            "$ref": "#/components/schemas/TeamsJogo"
+          },
+          "goals": {
+            "$ref": "#/components/schemas/GoalsJogo"
+          },
+          "score": {
+            "$ref": "#/components/schemas/ScoreJogo"
+          }
+        },
+        "additionalProperties": false
+      },
+      "ResponseLiga": {
+        "type": "object",
+        "properties": {
+          "league": {
+            "$ref": "#/components/schemas/LeagueLiga"
+          },
+          "country": {
+            "$ref": "#/components/schemas/CountryLiga"
+          },
+          "seasons": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/SeasonLiga"
+            },
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "ResponseTopScorers": {
+        "type": "object",
+        "properties": {
+          "player": {
+            "$ref": "#/components/schemas/PlayerTopScorers"
+          },
+          "statistics": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/StatisticTopScorers"
+            },
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "ScoreJogo": {
+        "type": "object",
+        "properties": {
+          "halftime": {
+            "$ref": "#/components/schemas/HalftimeJogo"
+          },
+          "fulltime": {
+            "$ref": "#/components/schemas/FulltimeJogo"
+          },
+          "extratime": {
+            "$ref": "#/components/schemas/ExtratimeJogo"
+          },
+          "penalty": {
+            "$ref": "#/components/schemas/PenaltyJogo"
+          }
+        },
+        "additionalProperties": false
+      },
+      "SeasonLiga": {
+        "type": "object",
+        "properties": {
+          "year": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "start": {
+            "type": "string",
+            "nullable": true
+          },
+          "end": {
+            "type": "string",
+            "nullable": true
+          },
+          "current": {
+            "type": "boolean"
+          },
+          "coverage": {
+            "$ref": "#/components/schemas/CoverageLiga"
+          }
+        },
+        "additionalProperties": false
+      },
+      "ShotsTopScorers": {
+        "type": "object",
+        "properties": {
+          "total": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "on": {
+            "type": "integer",
+            "format": "int32"
+          }
+        },
+        "additionalProperties": false
+      },
+      "StatisticTopScorers": {
+        "type": "object",
+        "properties": {
+          "team": {
+            "$ref": "#/components/schemas/TeamTopScorers"
+          },
+          "league": {
+            "$ref": "#/components/schemas/LeagueTopScorers"
+          },
+          "games": {
+            "$ref": "#/components/schemas/GamesTopScorers"
+          },
+          "substitutes": {
+            "$ref": "#/components/schemas/SubstitutesTopScorers"
+          },
+          "shots": {
+            "$ref": "#/components/schemas/ShotsTopScorers"
+          },
+          "goals": {
+            "$ref": "#/components/schemas/GoalsTopScorers"
+          },
+          "passes": {
+            "$ref": "#/components/schemas/PassesTopScorers"
+          },
+          "tackles": {
+            "$ref": "#/components/schemas/TacklesTopScorers"
+          },
+          "duels": {
+            "$ref": "#/components/schemas/DuelsTopScorers"
+          },
+          "dribbles": {
+            "$ref": "#/components/schemas/DribblesTopScorers"
+          },
+          "fouls": {
+            "$ref": "#/components/schemas/FoulsTopScorers"
+          },
+          "cards": {
+            "$ref": "#/components/schemas/CardsTopScorers"
+          },
+          "penalty": {
+            "$ref": "#/components/schemas/PenaltyTopScorers"
+          }
+        },
+        "additionalProperties": false
+      },
+      "StatusJogo": {
+        "type": "object",
+        "properties": {
+          "long": {
+            "type": "string",
+            "nullable": true
+          },
+          "short": {
+            "type": "string",
+            "nullable": true
+          },
+          "elapsed": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "SubstitutesTopScorers": {
+        "type": "object",
+        "properties": {
+          "in": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "out": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "bench": {
+            "type": "integer",
+            "format": "int32"
+          }
+        },
+        "additionalProperties": false
+      },
+      "TacklesTopScorers": {
+        "type": "object",
+        "properties": {
+          "total": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "blocks": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "interceptions": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "TeamEquipa": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "name": {
+            "type": "string",
+            "nullable": true
+          },
+          "code": {
+            "type": "string",
+            "nullable": true
+          },
+          "country": {
+            "type": "string",
+            "nullable": true
+          },
+          "founded": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "national": {
+            "type": "boolean"
+          },
+          "logo": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "TeamTopScorers": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "name": {
+            "type": "string",
+            "nullable": true
+          },
+          "logo": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "TeamsJogo": {
+        "type": "object",
+        "properties": {
+          "home": {
+            "$ref": "#/components/schemas/HomeJogo"
+          },
+          "away": {
+            "$ref": "#/components/schemas/AwayJogo"
+          }
+        },
+        "additionalProperties": false
+      },
+      "VenueEquipa": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "name": {
+            "type": "string",
+            "nullable": true
+          },
+          "address": {
+            "type": "string",
+            "nullable": true
+          },
+          "latitude": {
+            "type": "string",
+            "nullable": true
+          },
+          "longitude": {
+            "type": "string",
+            "nullable": true
+          },
+          "city": {
+            "type": "string",
+            "nullable": true
+          },
+          "capacity": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "surface": {
+            "type": "string",
+            "nullable": true
+          },
+          "image": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "VenueJogo": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "name": {
+            "type": "string",
+            "nullable": true
+          },
+          "city": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      }
+    }
+  }
+}
