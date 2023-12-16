@@ -29,6 +29,9 @@
                         <li class="nav-item">
                             <a class="nav-link text-dark" asp-area="" asp-page="/Stats">Stats Utilização</a>
                         </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-dark" asp-area="" asp-page="/HealthChecks">HealthChecks</a>
+                        </li>
                         @if (!string.IsNullOrEmpty(Global.BERARER_TOKEN))
                         {
                             string email;
@@ -53,9 +56,7 @@
 
                            
                         }
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-page="/HealthChecks">HealthChecks</a>
-                        </li>
+                        
                        
                     </ul>
                 </div>
