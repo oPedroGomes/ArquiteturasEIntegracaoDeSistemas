@@ -24,11 +24,11 @@ namespace BusinessProject.Pages
 
         public void OnGet()
         {
-            //MSDirecoes = PingHost(ipDirecoes);
-            //MSEstacionamento = PingHost(ipEstacionamento);
-            //MSLazer = PingHost(iplazer);
-            MSTempo = PingHost("localhost",44314);
-            //MSJogos = PingHost(ipJogos);
+            MSDirecoes = PingHost("localhost", 44372);
+            MSEstacionamento = PingHost("localhost", 44305);
+            MSLazer = PingHost("localhost", 44377);
+            MSTempo = PingHost("localhost", 44314);
+            MSJogos = PingHost("localhost", 44331);
         }
         public static bool PingHost(string hostUri, int portNumber)
         {
