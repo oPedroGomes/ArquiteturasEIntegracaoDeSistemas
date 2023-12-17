@@ -14,12 +14,10 @@ builder.Services.AddOcelot(builder.Configuration).AddPolly();
 builder.Configuration.AddJsonFile("ocelot.json", optional: false, reloadOnChange: true);
 var app = builder.Build();
 
-// Configure the HTTP request pipeline.
-if (app.Environment.IsDevelopment())
-{
+
     app.UseSwagger();
     app.UseSwaggerUI();
-}
+
 
 
 app.UseOcelot().Wait();

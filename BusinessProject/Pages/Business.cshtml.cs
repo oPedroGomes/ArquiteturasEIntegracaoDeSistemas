@@ -7,6 +7,7 @@ namespace BusinessProject.Pages
     public class BusinessModel : PageModel
     {
         private  BusinessClass _businessClass;
+        private readonly ILogger<BusinessModel> _logger;
 
         public GoogleMapDirectionModel direcoes { get; set; }
         public ParkingResponse parking { get; set; }
@@ -20,14 +21,16 @@ namespace BusinessProject.Pages
         public int? IdJogo { get; set; }
         public List<ResponseTopScorers> TopScorers { get; set; }
 
-        public BusinessModel()
+        public BusinessModel(ILogger<BusinessModel> logger)
         {
+            _logger = logger;
         }
 
         public IActionResult OnGet()
         {
             if(string.IsNullOrEmpty(Global.BERARER_TOKEN))
             {
+                _logger.LogWarning("Não foi definido Token");
                 return RedirectToPage("SetBearerToken");
             }
             
@@ -48,20 +51,29 @@ namespace BusinessProject.Pages
              resp = await _businessClass.GetEquipaById(DetalheJogo.Teams.Home.Id);
             }catch(Exception ex)
             {
+                _logger.LogError($"Não foi possivel obter detalhe para o jogo {IdJogo} - {ex.Message}");
+
                 resp = null;
             }
 
             if(resp != null)
             {
+
                 string latitude = resp.Venue.Latitude.Replace(',', '.');
                 string longitude = resp.Venue.Longitude.Replace(',', '.');
+
+                _logger.LogInformation($"Detalhe para o jogo {IdJogo} obtido com sucesso - Latitude: {latitude} - Longitude: {longitude}");
 
                 try
                 {
                     tempo = await _businessClass.GetWeather(latitude.Replace(',', '.'), longitude.Replace(',', '.'));
+                    _logger.LogInformation($"Tempo obtido com sucesso - {tempo}");
+
                 }
                 catch (Exception ex)
                 {
+                    _logger.LogError($"Erro ao obter tempo - {ex.Message}");
+
                     tempo = null;
                 }
 
@@ -72,9 +84,14 @@ namespace BusinessProject.Pages
                         From = new Coordinate() { Latitute = "41.532051", Longitude = "-8.619053" },
                         To = new Coordinate() { Latitute = latitude, Longitude = longitude }
                     });
+
+                    _logger.LogInformation($"direcoes obtidas com sucesso - {direcoes}");
+
                 }
                 catch (Exception ex)
                 {
+                    _logger.LogError($"Erro ao obter direções - {ex.Message}");
+
                     direcoes = null;
                 }
 
@@ -100,10 +117,13 @@ namespace BusinessProject.Pages
 
                         }
                     });
+                    _logger.LogInformation($"lazer obtido com sucesso - {lazer}");
 
                 }
                 catch (Exception ex)
                 {
+                    _logger.LogError($"Erro ao obter informação sobre lazer - {ex.Message}");
+
                     lazer = null;
                 }
 
@@ -128,9 +148,13 @@ namespace BusinessProject.Pages
                             }
                         }
                     });
+                    _logger.LogInformation($"parking obtido com sucesso - {parking}");
+
                 }
                 catch (Exception ex)
                 {
+                    _logger.LogError($"Erro ao obter informação sobre parking - {ex.Message}");
+
                     parking = null;
                 }
 
@@ -142,9 +166,12 @@ namespace BusinessProject.Pages
             try
             {
                 TopScorers = await _businessClass.GetTopScorers();
+                _logger.LogInformation($"TopScorers obtidos com sucesso - {TopScorers}");
+
             }
             catch (Exception ex)
             {
+                _logger.LogError($"Erro ao obter informação sobre parking - {ex.Message}");
                 TopScorers = null;
             }
 
@@ -158,10 +185,14 @@ namespace BusinessProject.Pages
 
             try
             {
+
                 Jogos = await _businessClass.GetJogos(clube, null);
+                _logger.LogInformation($"{Jogos.Count} Jogos obtidos para o clube - {Jogos}");
+
             }
             catch (Exception ex)
             {
+                _logger.LogError($"Erro ao obter informação sobre jogos - {ex.Message}");
                 Jogos = null;
             }
 

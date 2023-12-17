@@ -17,11 +17,11 @@ namespace BusinessProject.BL
             HttpClient client = new HttpClient();
             client.DefaultRequestHeaders.Authorization = new System.Net.Http.Headers.AuthenticationHeaderValue("Bearer", token);
 
-            _direcoesAPI = new DirecoesAPI("http://localhost:44372/", client);            
+            _direcoesAPI = new DirecoesAPI("http://localhost:44372/", client);
             _estacionamentoAPI = new EstacionamentoAPI("http://localhost:44305/", client);
             _lazerAPI = new LazerAPI("http://localhost:44377/", client);
              _tempoAPI = new TempoAPI("http://localhost:44314/", client);
-            _jogosAPI = new JogosAPI("https://localhost:44331/", client);
+            _jogosAPI = new JogosAPI("http://localhost:44331/", client);
 
 
 

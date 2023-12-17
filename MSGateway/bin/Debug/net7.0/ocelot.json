@@ -80,7 +80,79 @@
           "Port": 26722
         }
       ],
-      
+
+      "QoSOptions": {
+        "ExceptionsAllowedBeforeBreaking": 2,
+        "TimeoutValue": 10000,
+        "DurationOfBreak": 5000
+      }
+    },
+    //Microservico de direcoes
+    {
+      "UpstreamPathTemplate": "/gateway/direcoes",
+      "UpstreamHttpMethod": [ "POST" ],
+      "DownstreamPathTemplate": "/directions",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": 44372
+        }
+      ],
+      "QoSOptions": {
+        "ExceptionsAllowedBeforeBreaking": 2,
+        "TimeoutValue": 10000,
+        "DurationOfBreak": 5000
+      }
+    },
+    //Microservico de lazer
+    {
+      "UpstreamPathTemplate": "/gateway/lazer",
+      "UpstreamHttpMethod": [ "POST" ],
+      "DownstreamPathTemplate": "/GetPlacesLazer",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": 44377
+        }
+      ],
+      "QoSOptions": {
+        "ExceptionsAllowedBeforeBreaking": 2,
+        "TimeoutValue": 10000,
+        "DurationOfBreak": 5000
+      }
+    },
+    //Microservico de estacionamento
+    {
+      "UpstreamPathTemplate": "/gateway/estacionamento",
+      "UpstreamHttpMethod": [ "POST" ],
+      "DownstreamPathTemplate": "/GetPlacesLazer",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": 44377
+        }
+      ],
+      "QoSOptions": {
+        "ExceptionsAllowedBeforeBreaking": 2,
+        "TimeoutValue": 10000,
+        "DurationOfBreak": 5000
+      }
+    },
+    //Microservico de tempo
+    {
+      "UpstreamPathTemplate": "/gateway/tempo",
+      "UpstreamHttpMethod": [ "GET" ],
+      "DownstreamPathTemplate": "/weather",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": 44314
+        }
+      ],
       "QoSOptions": {
         "ExceptionsAllowedBeforeBreaking": 2,
         "TimeoutValue": 10000,
