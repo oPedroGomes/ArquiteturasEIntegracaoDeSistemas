@@ -15,7 +15,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("MSTempo")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+34fad7b90753b5471475c547c697acfe8c20ff19")]
 [assembly: System.Reflection.AssemblyProductAttribute("MSTempo")]
 [assembly: System.Reflection.AssemblyTitleAttribute("MSTempo")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

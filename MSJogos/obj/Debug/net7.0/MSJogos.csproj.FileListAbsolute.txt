@@ -27,7 +27,6 @@ C:\IPCA\ArquiteturasEIntegracaoDeSistemas\MSJogos\obj\Debug\net7.0\staticwebasse
 C:\IPCA\ArquiteturasEIntegracaoDeSistemas\MSJogos\obj\Debug\net7.0\staticwebassets.build.json
 C:\IPCA\ArquiteturasEIntegracaoDeSistemas\MSJogos\obj\Debug\net7.0\staticwebassets.development.json
 C:\IPCA\ArquiteturasEIntegracaoDeSistemas\MSJogos\obj\Debug\net7.0\scopedcss\bundle\MSJogos.styles.css
-C:\IPCA\ArquiteturasEIntegracaoDeSistemas\MSJogos\obj\Debug\net7.0\MSJogos.csproj.CopyComplete
 C:\IPCA\ArquiteturasEIntegracaoDeSistemas\MSJogos\obj\Debug\net7.0\MSJogos.dll
 C:\IPCA\ArquiteturasEIntegracaoDeSistemas\MSJogos\obj\Debug\net7.0\refint\MSJogos.dll
 C:\IPCA\ArquiteturasEIntegracaoDeSistemas\MSJogos\obj\Debug\net7.0\MSJogos.pdb
@@ -55,3 +54,5 @@ C:\IPCA\ArquiteturasEIntegracaoDeSistemas\MSJogos\bin\Debug\net7.0\Microsoft.Ide
 C:\IPCA\ArquiteturasEIntegracaoDeSistemas\MSJogos\bin\Debug\net7.0\Microsoft.IdentityModel.Protocols.OpenIdConnect.dll
 C:\IPCA\ArquiteturasEIntegracaoDeSistemas\MSJogos\bin\Debug\net7.0\Microsoft.IdentityModel.Tokens.dll
 C:\IPCA\ArquiteturasEIntegracaoDeSistemas\MSJogos\bin\Debug\net7.0\System.IdentityModel.Tokens.Jwt.dll
+C:\IPCA\ArquiteturasEIntegracaoDeSistemas\MSJogos\obj\Debug\net7.0\MSJogos.sourcelink.json
+C:\IPCA\ArquiteturasEIntegracaoDeSistemas\MSJogos\obj\Debug\net7.0\MSJogos.csproj.Up2Date

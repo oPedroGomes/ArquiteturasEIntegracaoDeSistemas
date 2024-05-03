@@ -15,7 +15,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("MSLazer")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+34fad7b90753b5471475c547c697acfe8c20ff19")]
 [assembly: System.Reflection.AssemblyProductAttribute("MSLazer")]
 [assembly: System.Reflection.AssemblyTitleAttribute("MSLazer")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

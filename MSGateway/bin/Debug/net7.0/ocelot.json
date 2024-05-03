@@ -12,7 +12,7 @@
       "DownstreamHostAndPorts": [
         {
           "Host": "localhost",
-          "Port": 26722
+          "Port": 44444
         }
       ]
 
@@ -25,7 +25,7 @@
       "DownstreamHostAndPorts": [
         {
           "Host": "localhost",
-          "Port": 26722
+          "Port": 44444
         }
       ]
 
@@ -38,7 +38,7 @@
       "DownstreamHostAndPorts": [
         {
           "Host": "localhost",
-          "Port": 26722
+          "Port": 44444
         }
       ]
 
@@ -51,7 +51,7 @@
       "DownstreamHostAndPorts": [
         {
           "Host": "localhost",
-          "Port": 26722
+          "Port": 44444
         }
       ]
 
@@ -64,7 +64,7 @@
       "DownstreamHostAndPorts": [
         {
           "Host": "localhost",
-          "Port": 26722
+          "Port": 44444
         }
       ]
 
@@ -77,7 +77,7 @@
       "DownstreamHostAndPorts": [
         {
           "Host": "localhost",
-          "Port": 26722
+          "Port": 44444
         }
       ],
 
@@ -159,6 +159,7 @@
         "DurationOfBreak": 5000
       }
     },
+    //MSJogos
     {
       "UpstreamPathTemplate": "/gateway/proximosJogos",
       "UpstreamHttpMethod": [ "GET" ],

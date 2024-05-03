@@ -95,7 +95,7 @@ namespace MSJogos.Controllers
         }
 
         [HttpPut("/updatejogos")]
-        [Authorize(Roles = "Admin")]
+        //[Authorize(Roles = "Admin")]
         public async Task<IActionResult> AtualizaJogos(int ligaID)
         {
             try
@@ -163,7 +163,7 @@ namespace MSJogos.Controllers
         }
 
         [HttpPut("/topscorers")]
-        [Authorize(Roles = "Admin")]
+        //[Authorize(Roles = "Admin")]
         public async Task<IActionResult> AtualizaTopScorers(string IdLiga)
         {
 

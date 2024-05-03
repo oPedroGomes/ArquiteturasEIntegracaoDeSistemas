@@ -17,6 +17,10 @@
       "PackagePath": "staticwebassets\\favicon.ico"
     },
     {
+      "Id": "C:\\IPCA\\ArquiteturasEIntegracaoDeSistemas\\BusinessProject\\wwwroot\\images\\InchaLogo.png",
+      "PackagePath": "staticwebassets\\images\\InchaLogo.png"
+    },
+    {
       "Id": "C:\\IPCA\\ArquiteturasEIntegracaoDeSistemas\\BusinessProject\\wwwroot\\images\\MicroservicesNoBg.png",
       "PackagePath": "staticwebassets\\images\\MicroservicesNoBg.png"
     },

@@ -59,7 +59,7 @@ namespace BusinessProject.Pages
 
 
             DadosUser = new List<UserStats>();
-
+            auxSum = auxSum.OrderByDescending(x => x.NReg).ToList();
             foreach (var item in auxSum)
             {
                 DadosUser.Add(new UserStats() { Email = item.email, CountPedidos = item.NReg});
